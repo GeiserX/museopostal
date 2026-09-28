@@ -1,0 +1,125 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  php:
+    name: PHP ${{ matrix.php }} · php -l
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.1', '8.4']
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: none
+      - name: Control negativo (un PHP roto tiene que fallar)
+        run: |
+          roto="$(mktemp -d)/roto.php"
+          printf '<?php\nfunction (\n' > "$roto"
+          if php -l "$roto"; then
+            echo "::error::php -l no detectó un fichero roto: esta comprobación no sirve"
+            exit 1
+          fi
+          echo "OK: php -l detecta un fichero roto"
+      - name: php -l en cada fichero PHP
+        run: |
+          mapfile -t ficheros < <(git ls-files '*.php')
+          if [ "${#ficheros[@]}" -eq 0 ]; then echo "::error::No hay ficheros PHP"; exit 1; fi
+          fallos=0
+          for f in "${ficheros[@]}"; do
+            php -l "$f" > /dev/null || { echo "::error file=$f::Error de sintaxis"; fallos=1; }
+          done
+          echo "${#ficheros[@]} ficheros PHP revisados"
+          exit "$fallos"
+
+  estructura:
+    name: theme.json, contraste y blueprint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - run: npm install --no-save --no-package-lock ajv@8
+      - name: Validar theme.json, variaciones, contraste y blueprints
+        run: node .github/scripts/validar-json.mjs
+      - name: Control negativo (un theme.json fuera de esquema tiene que fallar)
+        run: |
+          malo="$(mktemp -d)"
+          cp -R theme/museopostal/. "$malo"
+          node -e 'const f=process.argv[1];const j=require(f);j.settings.color.colour=true;require("fs").writeFileSync(f,JSON.stringify(j))' "$malo/theme.json"
+          if node .github/scripts/validar-json.mjs --tema "$malo"; then
+            echo "::error::El validador aceptó un theme.json con una clave inventada"
+            exit 1
+          fi
+          echo "OK: el validador rechaza un theme.json fuera de esquema"
+      - name: Control negativo (una paleta sin contraste tiene que fallar)
+        run: |
+          malo="$(mktemp -d)"
+          cp -R theme/museopostal/. "$malo"
+          node -e 'const f=process.argv[1];const j=require(f);j.settings.color.palette.find(c=>c.slug==="contrast").color="#AAAAAA";require("fs").writeFileSync(f,JSON.stringify(j))' "$malo/theme.json"
+          if node .github/scripts/validar-json.mjs --tema "$malo"; then
+            echo "::error::El validador aceptó texto gris claro sobre blanco"
+            exit 1
+          fi
+          echo "OK: el validador rechaza una paleta por debajo de 4,5:1"
+
+  paquetes:
+    name: zips, versión y privacidad
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Construir los zips
+        run: bash .github/scripts/empaquetar.sh dist
+      - name: Comprobar la carpeta raíz de los zips
+        run: bash .github/scripts/comprobar-zips.sh dist
+      - name: Control negativo (un zip sin carpeta raíz tiene que fallar)
+        run: |
+          malo="$(mktemp -d)"
+          (cd theme/museopostal && zip -qr "$malo/museopostal.zip" .)
+          cp dist/museopostal-coleccion.zip "$malo/"
+          if bash .github/scripts/comprobar-zips.sh "$malo"; then
+            echo "::error::La comprobación aceptó un zip sin carpeta raíz"
+            exit 1
+          fi
+          echo "OK: la comprobación rechaza un zip sin carpeta raíz"
+      - name: Versión del tema y del plugin
+        run: |
+          version="$(sed -n 's/^Version:[[:space:]]*//p' theme/museopostal/style.css | head -n1)"
+          bash .github/scripts/comprobar-version.sh "v$version"
+          if bash .github/scripts/comprobar-version.sh "v0.0.0"; then
+            echo "::error::La comprobación de versión aceptó una etiqueta que no coincide"
+            exit 1
+          fi
+          echo "OK: la comprobación de versión rechaza v0.0.0"
+      - name: Sin datos personales en el tema, el plugin y la muestra
+        run: bash .github/scripts/privacidad.sh
+      - name: Control negativo (un DNI tiene que saltar)
+        run: |
+          malo="$(mktemp -d)"
+          printf 'DNI %s%s\n' 1234 5678Z > "$malo/prueba.md"
+          if bash .github/scripts/privacidad.sh "$malo"; then
+            echo "::error::La búsqueda de datos personales no detectó un DNI"
+            exit 1
+          fi
+          echo "OK: la búsqueda detecta un DNI"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: zips-${{ github.sha }}
+          path: dist/*.zip
+          retention-days: 14

@@ -1,0 +1,92 @@
+name: Capturas
+
+# Arranca WordPress Playground en el runner con el tema, el plugin y la muestra,
+# y fotografía la portada, una sala y una ficha a 1440 y 500 px, para el tema
+# base y para cada variación de theme/museopostal/styles/. Las capturas se
+# suben como artefacto y, en PR de este repositorio, se guardan en la rama
+# (docs/capturas/). Si no cambia nada, no hay commit.
+on:
+  pull_request:
+    paths:
+      - 'theme/**'
+      - 'plugin/**'
+      - 'playground/**'
+      - '.github/workflows/screenshots.yml'
+      - '.github/scripts/capturas.mjs'
+      - '.github/capturas/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: capturas-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  capturas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Instalar Playground CLI 3 y Playwright
+        run: |
+          npm install --no-save --no-package-lock @wp-playground/cli@3 playwright@1
+          npx playwright install --with-deps chromium
+      - name: Arrancar Playground con la muestra
+        run: |
+          nohup npx wp-playground-cli server \
+            --port=9400 \
+            --mount="$PWD/theme/museopostal:/wordpress/wp-content/themes/museopostal" \
+            --mount="$PWD/plugin/museopostal-coleccion:/wordpress/wp-content/plugins/museopostal-coleccion" \
+            --mount="$PWD/.github/capturas/mu-plugins:/wordpress/wp-content/mu-plugins" \
+            --blueprint=playground/blueprint.json \
+            --blueprint-may-read-adjacent-files \
+            > "$RUNNER_TEMP/playground.log" 2>&1 &
+          for i in $(seq 1 120); do
+            if curl -fsS -o /dev/null http://127.0.0.1:9400/pieza/carta-de-aguilas-a-murcia-1866/; then
+              echo "Playground listo tras $((i * 5)) s"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::Playground no sirvió la ficha de muestra en 10 minutos"
+          cat "$RUNNER_TEMP/playground.log"
+          exit 1
+      - name: Capturas y comprobaciones (200 y un solo H1)
+        run: node .github/scripts/capturas.mjs http://127.0.0.1:9400
+      - name: Registro de Playground
+        if: always()
+        run: tail -n 80 "$RUNNER_TEMP/playground.log" || true
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: capturas-${{ github.event.pull_request.head.sha }}
+          path: docs/capturas/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Guardar las capturas en la rama de la PR
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          RAMA: ${{ github.event.pull_request.head.ref }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git add docs/capturas
+          if git diff --cached --quiet; then
+            echo "Las capturas no han cambiado: no hay commit."
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m "docs(capturas): capturas de ${SHA::7}"
+          for intento in 1 2 3; do
+            if git pull --rebase origin "$RAMA" && git push origin "HEAD:$RAMA"; then exit 0; fi
+            sleep 10
+          done
+          echo "::error::No se pudieron subir las capturas"
+          exit 1
