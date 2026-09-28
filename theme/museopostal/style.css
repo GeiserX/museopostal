@@ -86,8 +86,6 @@ Update URI: https://github.com/GeiserX/museopostal
 .wp-block-separator.is-style-perforado {
 	border: 0;
 	opacity: 1;
-	width: 100%;
-	max-width: none;
 	height: 12px;
 	background:
 		radial-gradient(circle at 6px 6px, var(--wp--preset--color--base) 3.5px, transparent 4px) 0 0 / 12px 12px repeat-x,
