@@ -46,7 +46,9 @@ for (const [variacion, esperado] of Object.entries(variaciones)) {
 		await contexto.addCookies([{ name: 'mp_variacion', value: variacion, url: base }]);
 		const pagina = await contexto.newPage();
 		// Cada imagen del sitio tiene que llegar entera: mismo tamaño que su fichero en playground/muestra/.
-		pagina.on('response', async (r) => {
+		// El cuerpo se lee en asíncrono: se guardan las promesas y se esperan antes de cerrar el contexto.
+		const pendientes = [];
+		const revisarRespuesta = async (r) => {
 			const url = r.url();
 			if (/\.woff2(\?|$)/.test(url) && !r.ok()) fallos.push(`${variacion} ${ancho}px: fuente ${url.split('/').pop()} respondió HTTP ${r.status()}`);
 			if (!/\/wp-content\/uploads\/muestra\/[^/?]+$/.test(url)) return;
@@ -57,7 +59,8 @@ for (const [variacion, esperado] of Object.entries(variaciones)) {
 			if (!r.ok() || !cuerpo || cuerpo.length !== esperado) {
 				fallos.push(`${variacion} ${ancho}px: ${nombre} llegó con HTTP ${r.status()} y ${cuerpo?.length ?? 0} bytes (el fichero tiene ${esperado})`);
 			}
-		});
+		};
+		pagina.on('response', (r) => pendientes.push(revisarRespuesta(r)));
 		for (const [nombre, ruta] of Object.entries(paginas)) {
 			const respuesta = await pagina.goto(base + ruta, { waitUntil: 'networkidle' });
 			const estado = respuesta?.status();
@@ -105,6 +108,7 @@ for (const [variacion, esperado] of Object.entries(variaciones)) {
 			const imagenes = await pagina.evaluate(() => [...document.images].map((img) => `${img.currentSrc.split('/').pop()}:${img.naturalWidth}`));
 			console.log(`${variacion}/${nombre}-${ancho}.png  HTTP ${estado}, ${h1} H1, logo ${estado2.logo}, favicon ${estado2.favicon.join(',') || '-'}, precargas ${estado2.precargas.length}, fuentes [${estado2.fuentes.join(', ')}], h1 en ${estado2.h1Fuente}, imágenes ${imagenes.join(' ')}`);
 		}
+		await Promise.all(pendientes);
 		await contexto.close();
 	}
 }
