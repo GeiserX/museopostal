@@ -37,6 +37,18 @@ for (const variacion of variaciones) {
 		const contexto = await navegador.newContext({ viewport: { width: ancho, height: 900 }, deviceScaleFactor: 1, locale: 'es-ES', reducedMotion: 'reduce' });
 		await contexto.addCookies([{ name: 'mp_variacion', value: variacion, url: base }]);
 		const pagina = await contexto.newPage();
+		// Cada imagen del sitio tiene que llegar entera: mismo tamaño que su fichero en playground/muestra/.
+		pagina.on('response', async (r) => {
+			const url = r.url();
+			if (!/\/wp-content\/uploads\/muestra\/[^/?]+$/.test(url)) return;
+			const nombre = decodeURIComponent(url.split('/').pop());
+			const local = join(raiz, 'playground/muestra', nombre);
+			const cuerpo = await r.body().catch(() => null);
+			const esperado = existsSync(local) ? readFileSync(local).length : -1;
+			if (!r.ok() || !cuerpo || cuerpo.length !== esperado) {
+				fallos.push(`${variacion} ${ancho}px: ${nombre} llegó con HTTP ${r.status()} y ${cuerpo?.length ?? 0} bytes (el fichero tiene ${esperado})`);
+			}
+		});
 		for (const [nombre, ruta] of Object.entries(paginas)) {
 			const respuesta = await pagina.goto(base + ruta, { waitUntil: 'networkidle' });
 			const estado = respuesta?.status();
@@ -57,7 +69,8 @@ for (const variacion of variaciones) {
 			const carpeta = join(raiz, 'docs/capturas', variacion);
 			mkdirSync(carpeta, { recursive: true });
 			await pagina.screenshot({ path: join(carpeta, `${nombre}-${ancho}.png`), fullPage: true, animations: 'disabled' });
-			console.log(`${variacion}/${nombre}-${ancho}.png  HTTP ${estado}, ${h1} H1`);
+			const imagenes = await pagina.evaluate(() => [...document.images].map((img) => `${img.currentSrc.split('/').pop()}:${img.naturalWidth}`));
+			console.log(`${variacion}/${nombre}-${ancho}.png  HTTP ${estado}, ${h1} H1, imágenes ${imagenes.join(' ')}`);
 		}
 		await contexto.close();
 	}
