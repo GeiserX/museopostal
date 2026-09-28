@@ -244,7 +244,9 @@ function museopostal_coleccion_registrar_modelo(): void {
 				'type'              => $entero ? 'integer' : 'string',
 				'single'            => true,
 				'show_in_rest'      => true,
-				'default'           => $campo['defecto'] ?? ( $entero ? 0 : '' ),
+				// Sin «defecto» aquí: un obligatorio vacío tiene que seguir vacío para que el aviso
+				// «Faltan campos obligatorios» salte. El defecto solo preselecciona el desplegable.
+				'default'           => $entero ? 0 : '',
 				'sanitize_callback' => static fn( $valor ) => museopostal_coleccion_limpiar( $valor, $campo ),
 				'auth_callback'     => static fn( $permitido, $clave_meta, $id ) => current_user_can( 'edit_post', $id ),
 			)

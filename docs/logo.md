@@ -40,7 +40,7 @@ Es un matasellos redondo de estafeta. Arriba dice «MUSEO POSTAL», abajo «MURC
 
 ### C · Dentado
 
-Es la más sencilla. Un sello granate macizo con el mapa de la Región recortado, sin lupa, sin laurel y sin letras. Es sobria y moderna, se reconoce de lejos y se puede estampar, bordar o grabar en una sola tinta. Para mi gusto es la que mejor envejece. El nombre va en Instrument Serif y la segunda línea en Atkinson Hyperlegible Next, una letra diseñada para personas con baja visión. Son las de Sala blanca.
+Es la más sencilla. Un sello granate macizo con el mapa de la Región recortado, sin lupa, sin laurel y sin letras. Es sobria y moderna, se reconoce de lejos y se puede estampar, bordar o grabar en una sola tinta. Es la que mejor envejece, y es la que recomendamos si se elige Sala blanca. El nombre va en Instrument Serif y la segunda línea en Atkinson Hyperlegible Next, una letra diseñada para personas con baja visión. Son las de Sala blanca.
 
 ## Cómo se ven a 32 píxeles
 

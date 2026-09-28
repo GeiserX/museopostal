@@ -89,6 +89,7 @@ foreach ( $museopostal_imagenes as $museopostal_slug => $museopostal_datos ) {
 }
 
 // Cabecera de cada sala: el anverso de una de sus piezas (mp_sala_cabecera_id).
+// Solo en la muestra: en el sitio real será un detalle macro, porque el bloque lo recorta.
 $museopostal_cabeceras = array(
 	'antes-del-sello'             => 'hoja-bloque-300-anos-correos-2016',
 	'region-de-murcia'            => 'carta-de-aguilas-a-murcia-1866',
