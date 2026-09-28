@@ -5,7 +5,8 @@
  * Guarda docs/capturas/<variacion>/<pagina>-<ancho>.png.
  *
  * Además de fotografiar, comprueba que cada página responde 200, la pinta el
- * tema museopostal (su cabecera .mp-cabecera) y tiene un solo H1.
+ * tema museopostal (su cabecera .mp-cabecera), tiene un solo H1 y todas sus
+ * imágenes cargan.
  * Uso (con Playground ya escuchando): node .github/scripts/capturas.mjs [url]
  */
 import { chromium } from 'playwright';
@@ -44,6 +45,15 @@ for (const variacion of variaciones) {
 			if (estado !== 200) fallos.push(`${variacion} ${nombre} ${ancho}px: HTTP ${estado}`);
 			if (cabecera !== 1) fallos.push(`${variacion} ${nombre} ${ancho}px: no la pinta el tema museopostal`);
 			if (h1 !== 1) fallos.push(`${variacion} ${nombre} ${ancho}px: ${h1} H1 (se espera 1)`);
+			// Las imágenes con loading="lazy" por debajo del pliegue no se cargan en una
+			// captura de página entera: se fuerzan y se espera a que terminen.
+			await pagina.evaluate(async () => {
+				const imagenes = [...document.images];
+				imagenes.forEach((img) => { img.loading = 'eager'; });
+				await Promise.all(imagenes.map((img) => (img.complete ? null : new Promise((listo) => { img.onload = img.onerror = listo; }))));
+			});
+			const rotas = await pagina.evaluate(() => [...document.images].filter((img) => !img.naturalWidth).map((img) => img.currentSrc || img.src));
+			if (rotas.length) fallos.push(`${variacion} ${nombre} ${ancho}px: imágenes sin cargar: ${rotas.join(', ')}`);
 			const carpeta = join(raiz, 'docs/capturas', variacion);
 			mkdirSync(carpeta, { recursive: true });
 			await pagina.screenshot({ path: join(carpeta, `${nombre}-${ancho}.png`), fullPage: true, animations: 'disabled' });
