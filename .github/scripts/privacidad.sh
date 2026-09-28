@@ -8,7 +8,7 @@ if [ "$#" -eq 0 ]; then
 	set -- "$raiz/theme" "$raiz/plugin" "$raiz/playground"
 fi
 
-patron='\b[0-9]{8}-?[A-HJ-NP-TV-Z]\b|\b[XYZ][0-9]{7}[A-Z]\b|[A-Za-z0-9._%+-]+@(gmail|googlemail|hotmail|outlook|yahoo|icloud|live|msn)\.[a-z]+|wa\.me/|\+34[ -]?[6-9][0-9]{2}|\b[67][0-9]{8}\b'
+patron='\b[0-9]{8}-?[A-HJ-NP-TV-Za-hj-np-tv-z]\b|\b[XYZxyz][0-9]{7}[A-Za-z]\b|[A-Za-z0-9._%+-]+@(gmail|googlemail|hotmail|outlook|yahoo|icloud|live|msn)\.[a-z]+|wa\.me/|\+34[ -]?[6-9][0-9]{2}|\b[67][0-9]{2}([ .-]?[0-9]{3}[ .-]?[0-9]{3}|[ .-]?[0-9]{2}[ .-]?[0-9]{2}[ .-]?[0-9]{2})\b'
 ficheros=0
 while IFS= read -r -d '' f; do
 	ficheros=$((ficheros + 1))

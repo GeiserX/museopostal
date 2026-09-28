@@ -125,5 +125,11 @@ $museopostal_sin_imagen = get_posts(
 	)
 );
 if ( $museopostal_sin_imagen || 8 !== (int) wp_count_posts( 'pieza' )->publish ) {
-	throw new RuntimeException( 'La muestra no quedó completa: piezas sin anverso ' . implode( ',', $museopostal_sin_imagen ) );
+	throw new RuntimeException(
+		sprintf(
+			'La muestra no quedó completa: %d piezas publicadas (se esperan 8); sin anverso: %s',
+			(int) wp_count_posts( 'pieza' )->publish,
+			$museopostal_sin_imagen ? implode( ',', $museopostal_sin_imagen ) : 'ninguna'
+		)
+	);
 }

@@ -13,9 +13,10 @@
 import Ajv from 'ajv';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 
-const raiz = resolve(new URL('../..', import.meta.url).pathname);
+const raiz = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const opcion = (nombre, defecto) => {
 	const i = process.argv.indexOf(nombre);
 	return i > -1 ? resolve(process.argv[i + 1]) : defecto;

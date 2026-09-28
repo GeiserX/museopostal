@@ -12,8 +12,9 @@
 import { chromium } from 'playwright';
 import { existsSync, mkdirSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const raiz = resolve(new URL('../..', import.meta.url).pathname);
+const raiz = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const base = (process.argv[2] || 'http://127.0.0.1:9400').replace(/\/$/, '');
 const paginas = {
 	portada: '/',

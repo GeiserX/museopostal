@@ -114,7 +114,8 @@ function museopostal_coleccion_destino_301( string $ruta, array $consulta, array
 	$ruta = strtolower( '/' . trim( rawurldecode( $ruta ), '/' ) . '/' );
 	$ruta = '//' === $ruta ? '/' : $ruta;
 
-	foreach ( array( 'p', 'page_id' ) as $parametro ) {
+	// Los enlaces cortos solo cuentan en la portada: /ruta-inventada/?p=235 sigue dando 404.
+	foreach ( '/' === $ruta ? array( 'p', 'page_id' ) : array() as $parametro ) {
 		if ( isset( $consulta[ $parametro ] ) && isset( $mapa[ '?' . $parametro . '=' . absint( $consulta[ $parametro ] ) ] ) ) {
 			return $mapa[ '?' . $parametro . '=' . absint( $consulta[ $parametro ] ) ];
 		}
