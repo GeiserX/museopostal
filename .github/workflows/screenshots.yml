@@ -40,24 +40,38 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Arrancar Playground con la muestra
         run: |
+          log="$RUNNER_TEMP/playground.log"
           nohup npx wp-playground-cli server \
-            --port=9400 \
+            --port=9400 --php=8.4 --wp=7.1 \
             --mount="$PWD/theme/museopostal:/wordpress/wp-content/themes/museopostal" \
             --mount="$PWD/plugin/museopostal-coleccion:/wordpress/wp-content/plugins/museopostal-coleccion" \
             --mount="$PWD/.github/capturas/mu-plugins:/wordpress/wp-content/mu-plugins" \
             --blueprint=playground/blueprint.json \
             --blueprint-may-read-adjacent-files \
-            > "$RUNNER_TEMP/playground.log" 2>&1 &
-          for i in $(seq 1 120); do
-            if curl -fsS -o /dev/null http://127.0.0.1:9400/pieza/carta-de-aguilas-a-murcia-1866/; then
-              echo "Playground listo tras $((i * 5)) s"
-              exit 0
+            > "$log" 2>&1 &
+          pid=$!
+          # El servidor contesta antes de terminar el blueprint: hay que esperar a «Ready!».
+          for i in $(seq 1 300); do
+            if grep -q 'Ready!' "$log"; then break; fi
+            if ! kill -0 "$pid" 2>/dev/null; then
+              echo "::error::Playground se paró antes de terminar el blueprint"
+              cat "$log"
+              exit 1
             fi
-            sleep 5
+            sleep 2
           done
-          echo "::error::Playground no sirvió la ficha de muestra en 10 minutos"
-          cat "$RUNNER_TEMP/playground.log"
-          exit 1
+          if ! grep -q 'Ready!' "$log"; then
+            echo "::error::Playground no terminó el blueprint en 10 minutos"
+            cat "$log"
+            exit 1
+          fi
+          codigo="$(curl -s -L -c "$RUNNER_TEMP/cookies" -b "$RUNNER_TEMP/cookies" -o "$RUNNER_TEMP/ficha.html" -w '%{http_code}' http://127.0.0.1:9400/pieza/carta-de-aguilas-a-murcia-1866/)"
+          if [ "$codigo" != 200 ] || ! grep -q 'mp-cabecera' "$RUNNER_TEMP/ficha.html"; then
+            echo "::error::La ficha de muestra respondió $codigo o no la pinta el tema museopostal"
+            cat "$log"
+            exit 1
+          fi
+          echo "Playground listo con la muestra tras $((i * 2)) s"
       - name: Capturas y comprobaciones (200 y un solo H1)
         run: node .github/scripts/capturas.mjs http://127.0.0.1:9400
       - name: Registro de Playground

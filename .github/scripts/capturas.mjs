@@ -4,7 +4,8 @@
  * base y para cada variación de theme/museopostal/styles/*.json.
  * Guarda docs/capturas/<variacion>/<pagina>-<ancho>.png.
  *
- * Además de fotografiar, comprueba: cada página responde 200 y tiene un solo H1.
+ * Además de fotografiar, comprueba que cada página responde 200, la pinta el
+ * tema museopostal (su cabecera .mp-cabecera) y tiene un solo H1.
  * Uso (con Playground ya escuchando): node .github/scripts/capturas.mjs [url]
  */
 import { chromium } from 'playwright';
@@ -39,7 +40,9 @@ for (const variacion of variaciones) {
 			const respuesta = await pagina.goto(base + ruta, { waitUntil: 'networkidle' });
 			const estado = respuesta?.status();
 			const h1 = await pagina.locator('h1').count();
+			const cabecera = await pagina.locator('.mp-cabecera').count();
 			if (estado !== 200) fallos.push(`${variacion} ${nombre} ${ancho}px: HTTP ${estado}`);
+			if (cabecera !== 1) fallos.push(`${variacion} ${nombre} ${ancho}px: no la pinta el tema museopostal`);
 			if (h1 !== 1) fallos.push(`${variacion} ${nombre} ${ancho}px: ${h1} H1 (se espera 1)`);
 			const carpeta = join(raiz, 'docs/capturas', variacion);
 			mkdirSync(carpeta, { recursive: true });
