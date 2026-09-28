@@ -83,23 +83,30 @@ if (Math.abs(contraste('#000000', '#FFFFFF') - 21) > 0.01) mal('La fórmula de c
 const temaBase = leer(temaJson);
 const paletaBase = Object.fromEntries((temaBase.settings?.color?.palette ?? []).map((c) => [c.slug, c.color]));
 const customBase = temaBase.settings?.custom ?? {};
-const slugTextoMontura = (custom) => {
+// WordPress copia settings.custom tal cual en --wp--custom--texto-montura, así que
+// solo vale la referencia CSS a un preset; un slug suelto («contrast») no es CSS válido.
+const slugTextoMontura = (nombre, custom) => {
 	const valor = String(custom.textoMontura ?? 'var(--wp--preset--color--contrast)');
 	const m = /^var\(--wp--preset--color--([a-z0-9-]+)\)$/.exec(valor);
-	return m ? m[1] : valor; // un valor que no es un preset no se puede medir: falla abajo
+	if (!m) mal(`${nombre}: settings.custom.textoMontura debe ser var(--wp--preset--color--<slug>), no «${valor}»`);
+	return m ? m[1] : null;
 };
-const paletas = [['theme.json', paletaBase, slugTextoMontura(customBase)]];
+const paletas = [['theme.json', paletaBase, slugTextoMontura('theme.json', customBase)]];
 for (const fichero of variaciones) {
 	const datos = leer(fichero);
 	if (datos.blockTypes) continue; // estilo de sección, no una variación completa
-	const propia = Object.fromEntries((datos.settings?.color?.palette ?? []).map((c) => [c.slug, c.color]));
-	paletas.push([fichero.split('/').pop(), { ...paletaBase, ...propia }, slugTextoMontura({ ...customBase, ...(datos.settings?.custom ?? {}) })]);
+	const nombre = fichero.split('/').pop();
+	// Si la variación trae paleta, WordPress la usa entera en lugar de la del tema:
+	// los slugs que falten no existen. Solo sin paleta propia se hereda la de theme.json.
+	const propia = datos.settings?.color?.palette;
+	const paleta = propia ? Object.fromEntries(propia.map((c) => [c.slug, c.color])) : paletaBase;
+	paletas.push([nombre, paleta, slugTextoMontura(nombre, { ...customBase, ...(datos.settings?.custom ?? {}) })]);
 }
 for (const [nombre, paleta, textoMontura] of paletas) {
 	for (const slug of SLUGS) {
 		if (!/^#[0-9a-f]{6}$/i.test(paleta[slug] ?? '')) mal(`${nombre}: falta el color «${slug}» o no es #RRGGBB`);
 	}
-	if (!paleta[textoMontura]) mal(`${nombre}: settings.custom.textoMontura debe ser var(--wp--preset--color--<slug>) con un slug de la paleta, no «${textoMontura}»`);
+	if (textoMontura && !paleta[textoMontura]) mal(`${nombre}: settings.custom.textoMontura apunta a «${textoMontura}», que no está en la paleta`);
 	const pares = PARES.map(([t, f]) => [t === 'textoMontura' ? textoMontura : t, f]);
 	const bajos = pares.filter(([t, f]) => paleta[t] && paleta[f] && contraste(paleta[t], paleta[f]) < 4.5)
 		.map(([t, f]) => `${t} sobre ${f} ${contraste(paleta[t], paleta[f]).toFixed(2)}:1`);

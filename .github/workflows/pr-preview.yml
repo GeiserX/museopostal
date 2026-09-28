@@ -29,6 +29,9 @@ jobs:
           REPO: ${{ github.repository }}
           SHA: ${{ github.event.pull_request.head.sha }}
         run: |
+          # Sin pipefail, un fallo de vista-previa.mjs dentro de la tubería de abajo
+          # publicaría un enlace con el blueprint vacío.
+          set -euo pipefail
           node playground/vista-previa.mjs "$REPO" "$SHA" > "$RUNNER_TEMP/blueprint.json"
           {
             echo 'json<<FIN_DEL_BLUEPRINT'

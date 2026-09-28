@@ -78,6 +78,26 @@ jobs:
             exit 1
           fi
           echo "OK: el validador rechaza una paleta por debajo de 4,5:1"
+      - name: Control negativo (una variación con paleta parcial tiene que fallar)
+        run: |
+          malo="$(mktemp -d)"
+          cp -R theme/museopostal/. "$malo"
+          node -e 'const f=process.argv[1];const j=require(f);j.settings.color.palette=j.settings.color.palette.filter(c=>c.slug!=="mount");require("fs").writeFileSync(f,JSON.stringify(j))' "$malo/styles/estafeta.json"
+          if node .github/scripts/validar-json.mjs --tema "$malo"; then
+            echo "::error::El validador completó con theme.json una paleta de variación sin «mount»"
+            exit 1
+          fi
+          echo "OK: el validador rechaza una variación con paleta parcial"
+      - name: Control negativo (textoMontura sin var() tiene que fallar)
+        run: |
+          malo="$(mktemp -d)"
+          cp -R theme/museopostal/. "$malo"
+          node -e 'const f=process.argv[1];const j=require(f);j.settings.custom.textoMontura="contrast";require("fs").writeFileSync(f,JSON.stringify(j))' "$malo/theme.json"
+          if node .github/scripts/validar-json.mjs --tema "$malo"; then
+            echo "::error::El validador aceptó textoMontura como slug suelto"
+            exit 1
+          fi
+          echo "OK: el validador rechaza textoMontura que no es var(--wp--preset--color--<slug>)"
 
   paquetes:
     name: zips, versión y privacidad
@@ -118,6 +138,20 @@ jobs:
             exit 1
           fi
           echo "OK: la búsqueda detecta un DNI"
+      - name: Control negativo (un correo escrito con entidades HTML tiene que saltar)
+        run: |
+          malo="$(mktemp -d)"
+          printf '<p>&#112;rueba&#x2e;persona&#108;&commat;g&#109;ail&period;com</p>\n' > "$malo/entidades.html"
+          printf '<span class="cmplz-obfuscate">prueba&#46;persona&#108;@<span class="cmplz-fmail-domain">&#101;x.com</span>&#103;mail.com</span>\n' > "$malo/complianz.html"
+          for f in entidades complianz; do
+            solo="$(mktemp -d)"
+            cp "$malo/$f.html" "$solo/"
+            if bash .github/scripts/privacidad.sh "$solo"; then
+              echo "::error::La búsqueda de datos personales no detectó el correo codificado de $f.html"
+              exit 1
+            fi
+          done
+          echo "OK: la búsqueda detecta correos escritos con entidades HTML y con el señuelo de Complianz"
       - uses: actions/upload-artifact@v7
         with:
           name: zips-${{ github.sha }}
