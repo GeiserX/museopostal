@@ -34,7 +34,7 @@ MCP: **no merece la pena ahora.** El endpoint `/wp-json/mcp/mcp-adapter-default-
 | PHP | 8.4.17, `memory_limit` 1024M, `max_execution_time` 30 s, `max_input_vars` 1000 | `sitehealth.html` |
 | Subidas | `upload_max_filesize` **128M**, `post_max_size` **256M**, máx. 20 ficheros simultáneos | `sitehealth.html` |
 | Opcache | **Lleno**: 128 MB de 128 MB, cadenas internas al 100 %, tasa de acierto 63,85 %. Con 29 plugins no cabe el código; quitar plugins ayuda directamente | `sitehealth.html` |
-| Base de datos | MariaDB 10.11.15, utf8mb4_unicode_520_ci, prefijo `w47fa_` | `sitehealth.html` |
+| Base de datos | MariaDB 10.11.15, utf8mb4_unicode_520_ci, prefijo de tablas personalizado (omitido aquí) | `sitehealth.html` |
 | Permisos de ficheros | raíz, wp-content, plugins, temas y subidas: «Editable», así que la instalación por zip funciona por FS directo | `sitehealth.html` |
 | Tema activo | **Neve 4.2.3** (hay 4.2.13 disponible), clásico, sin tema hijo | `themes.html` (`_wpThemeSettings`) |
 | Tema huérfano | «MuseoPostal.org Child Theme» (`theme-1`), **tema de bloques hijo de Twenty Twenty-Four**, inactivo. Tiene `wp_template`/`wp_template_part`/`wp_global_styles` en la BD (IDs 30–33, 583, 588). Parece un intento anterior hecho con Create Block Theme | `themes.html`, WXR |
@@ -393,7 +393,7 @@ Si más adelante se quiere ayudar a Felipe de forma continuada (por ejemplo, red
 2. Crear un usuario dedicado con rol **Editor**, no el administrador.
 3. Usar la REST normal `wp/v2` (`/wp/v2/pieza`, `/wp/v2/media`, `/wp/v2/pages`) o registrar en el plugin compañero 2–3 abilities propias (`museopostal/crear-pieza`, `museopostal/listar-salas`) con `meta.mcp.public = true`.
 
-Mientras tanto, lo higiénico es **revocar la contraseña de aplicación `executor-sergio-2026-09-28`** si no se va a usar.
+Mientras tanto, lo higiénico es **revocar la contraseña de aplicación creada el 28-09-2026** si no se va a usar.
 
 Fuentes: [MCP Adapter (dev blog)](https://developer.wordpress.org/news/2026/02/from-abilities-to-ai-agents-introducing-the-wordpress-mcp-adapter/) · [WordPress/mcp-adapter](https://github.com/WordPress/mcp-adapter) · [Hoja de ruta 7.2](https://make.wordpress.org/core/2026/09/18/roadmap-to-7-2/) · [MCP en WooCommerce](https://developer.woocommerce.com/docs/features/mcp/) · [Abilities API](https://developer.wordpress.org/news/2025/11/introducing-the-wordpress-abilities-api/) · [Guía de contraseñas de aplicación](https://make.wordpress.org/core/2020/11/05/application-passwords-integration-guide/) · [Trac #51723 (regla .htaccess en 5.6)](https://core.trac.wordpress.org/ticket/51723) · [Wiki «Basic Authorization Header Missing»](https://github.com/WordPress/application-passwords/wiki/Basic-Authorization-Header----Missing) · [Endurecimiento de Really Simple Security](https://really-simple-ssl.com/instructions/about-hardening-features/)
 

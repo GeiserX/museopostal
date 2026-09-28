@@ -8,3 +8,4 @@ cj.txt
 node_modules/
 .DS_Store
 dist/
+.worktrees/
