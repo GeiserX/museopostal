@@ -4,7 +4,7 @@
  * Slug: museopostal/sala-intro
  * Categories: museopostal-salas
  * Inserter: no
- * Description: Cabecera de una sala: imagen de cabecera (mp_sala_cabecera_id), migas, nombre de la sala como H1 y el texto de sala, que es la descripción del término.
+ * Description: Presentación de una sala: migas, nombre de la sala como H1 y el texto de sala, que es la descripción del término. La imagen de cabecera (mp_sala_cabecera_id) va antes, en la plantilla, para ir a sangre.
  *
  * @package museopostal
  */
@@ -12,8 +12,6 @@
 ?>
 <!-- wp:group {"tagName":"section","className":"mp-sala-intro","layout":{"type":"constrained"}} -->
 <section class="wp-block-group mp-sala-intro">
-<!-- wp:museopostal/sala-cabecera /-->
-
 <!-- wp:breadcrumbs /-->
 
 <!-- wp:paragraph {"className":"mp-sala-intro__etiqueta"} -->

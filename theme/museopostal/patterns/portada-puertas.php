@@ -22,7 +22,7 @@ $museopostal_salas = array(
 <h2 class="wp-block-heading"><?php esc_html_e( 'Las salas', 'museopostal' ); ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"className":"mp-puertas__rejilla","layout":{"type":"grid","minimumColumnWidth":"16rem"}} -->
+<!-- wp:group {"className":"mp-puertas__rejilla","layout":{"type":"grid","minimumColumnWidth":"13rem"}} -->
 <div class="wp-block-group mp-puertas__rejilla">
 <?php foreach ( $museopostal_salas as $museopostal_sala ) : ?>
 <!-- wp:group {"className":"is-style-tarjeta<?php echo $museopostal_sala[3] ? ' mp-puertas__central' : ''; ?>","layout":{"type":"default"}} -->

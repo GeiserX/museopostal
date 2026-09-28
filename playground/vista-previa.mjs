@@ -62,6 +62,8 @@ if (variacion !== 'base') {
 			`if ( ! is_array( $datos ) ) { throw new RuntimeException( "Variación ilegible: ${variacion}" ); }`,
 			'$usuario = array( "version" => 3, "isGlobalStylesUserThemeJSON" => true, "settings" => $datos["settings"] ?? array(), "styles" => $datos["styles"] ?? array() );',
 			'$id = (int) WP_Theme_JSON_Resolver::get_user_global_styles_post_id();',
+			// Sin usuario conectado, wp_insert_post no asigna el término wp_theme y WordPress no encontraría el post.
+			'wp_set_object_terms( $id, get_stylesheet(), "wp_theme" );',
 			'global $wpdb;',
 			'$wpdb->update( $wpdb->posts, array( "post_content" => wp_json_encode( $usuario ) ), array( "ID" => $id ) );',
 			'clean_post_cache( $id );',
