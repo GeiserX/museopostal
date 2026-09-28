@@ -9,13 +9,22 @@
  * - cambia cada recurso «bundled» (muestra.xml, imágenes, muestra.php) por
  *   su URL en raw.githubusercontent.com de ese mismo commit.
  *
- * Uso: node playground/vista-previa.mjs <propietario/repo> <sha>
+ * Con un tercer argumento, el slug de una variación (theme/museopostal/styles/
+ * <slug>.json), añade un paso que la deja aplicada como si Felipe la hubiera
+ * elegido en Estilos: guarda sus settings y styles en el post wp_global_styles
+ * del usuario, que es donde WordPress guarda esa elección.
+ *
+ * Uso: node playground/vista-previa.mjs <propietario/repo> <sha> [variación|base]
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
-const [repo, sha] = process.argv.slice(2);
-if (!/^[\w.-]+\/[\w.-]+$/.test(repo ?? '') || !/^[0-9a-f]{40}$/.test(sha ?? '')) {
-	console.error('Uso: node playground/vista-previa.mjs <propietario/repo> <sha de 40 caracteres>');
+const [repo, sha, variacion = 'base'] = process.argv.slice(2);
+if (!/^[\w.-]+\/[\w.-]+$/.test(repo ?? '') || !/^[0-9a-f]{40}$/.test(sha ?? '') || !/^[a-z0-9-]+$/.test(variacion)) {
+	console.error('Uso: node playground/vista-previa.mjs <propietario/repo> <sha de 40 caracteres> [variación|base]');
+	process.exit(2);
+}
+if (variacion !== 'base' && !existsSync(new URL(`../theme/museopostal/styles/${variacion}.json`, import.meta.url))) {
+	console.error(`No existe theme/museopostal/styles/${variacion}.json`);
 	process.exit(2);
 }
 
@@ -39,5 +48,30 @@ blueprint.steps = [
 	{ step: 'installPlugin', pluginData: desdeGit('plugin/museopostal-coleccion'), options: { activate: false, targetFolderName: 'museopostal-coleccion' } },
 	...blueprint.steps,
 ];
+
+if (variacion !== 'base') {
+	blueprint.meta.title += ` (${variacion})`;
+	// Directo en la tabla: sin kses (el CSS de la variación lleva «>») ni revisiones.
+	blueprint.steps.push({
+		step: 'runPHP',
+		code: [
+			'<?php',
+			'require "/wordpress/wp-load.php";',
+			`$fichero = get_theme_file_path( "styles/${variacion}.json" );`,
+			'$datos = json_decode( (string) file_get_contents( $fichero ), true );',
+			`if ( ! is_array( $datos ) ) { throw new RuntimeException( "Variación ilegible: ${variacion}" ); }`,
+			'$usuario = array( "version" => 3, "isGlobalStylesUserThemeJSON" => true, "settings" => $datos["settings"] ?? array(), "styles" => $datos["styles"] ?? array() );',
+			'$id = (int) WP_Theme_JSON_Resolver::get_user_global_styles_post_id();',
+			'global $wpdb;',
+			'$wpdb->update( $wpdb->posts, array( "post_content" => wp_json_encode( $usuario ) ), array( "ID" => $id ) );',
+			'clean_post_cache( $id );',
+			'wp_cache_flush();',
+			'WP_Theme_JSON_Resolver::clean_cached_data();',
+			'$esperado = ""; foreach ( (array) ( $datos["settings"]["color"]["palette"] ?? array() ) as $c ) { if ( "base" === ( $c["slug"] ?? "" ) ) { $esperado = strtolower( (string) $c["color"] ); } }',
+			'$real = ""; foreach ( (array) wp_get_global_settings( array( "color", "palette", "custom" ) ) as $c ) { if ( "base" === ( $c["slug"] ?? "" ) ) { $real = strtolower( (string) $c["color"] ); } }',
+			`if ( "" === $esperado || $real !== $esperado ) { throw new RuntimeException( "La variación ${variacion} no quedó aplicada: fondo $real, se esperaba $esperado" ); }`,
+		].join('\n'),
+	});
+}
 
 process.stdout.write(JSON.stringify(blueprint));

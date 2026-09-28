@@ -5,7 +5,7 @@
  * Categories: header
  * Block Types: core/template-part/header
  * Inserter: no
- * Description: Nombre, lema, menú de cinco entradas y buscador visible también en móvil (§4.1).
+ * Description: Logo (o nombre), lema, menú de cinco entradas y buscador visible también en móvil (§4.1, §6.4).
  *
  * Es un patrón PHP y no HTML fijo para que los enlaces salgan de home_url():
  * así funcionan igual en museopostal.org, en el clon de pruebas y en Playground.
@@ -37,6 +37,14 @@ $museopostal_submenu = static function ( string $texto, string $ruta, array $hij
 	}
 	return $html . '<!-- /wp:navigation-submenu -->';
 };
+
+// El logo horizontal que elige la variación activa (settings.custom.logo), en
+// línea para que siga sus colores. Si no hay, el nombre del sitio en texto.
+$museopostal_logo = sanitize_key( (string) wp_get_global_settings( array( 'custom', 'logo' ) ) );
+$museopostal_svg  = '';
+if ( '' !== $museopostal_logo && is_readable( get_theme_file_path( 'assets/logo/' . $museopostal_logo . '-horizontal.svg' ) ) ) {
+	$museopostal_svg = (string) file_get_contents( get_theme_file_path( 'assets/logo/' . $museopostal_logo . '-horizontal.svg' ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- fichero del propio tema.
+}
 ?>
 <!-- wp:group {"className":"mp-cabecera","layout":{"type":"constrained"}} -->
 <div class="wp-block-group mp-cabecera">
@@ -44,7 +52,13 @@ $museopostal_submenu = static function ( string $texto, string $ruta, array $hij
 <div class="wp-block-group alignwide mp-cabecera__fila">
 <!-- wp:group {"className":"mp-marca","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group mp-marca">
+<?php if ( '' !== $museopostal_svg ) : ?>
+<!-- wp:html -->
+<a class="mp-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo $museopostal_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG del propio tema. ?></a>
+<!-- /wp:html -->
+<?php else : ?>
 <!-- wp:site-title {"level":0} /-->
+<?php endif; ?>
 <!-- wp:site-tagline /-->
 </div>
 <!-- /wp:group -->

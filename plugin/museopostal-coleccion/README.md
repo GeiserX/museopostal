@@ -9,6 +9,7 @@ El modelo del museo, separado del tema para que sobreviva a cualquier cambio de 
 - **Metadatos `mp_*`**: los 44 campos del BRIEF §5.1, visibles en la API REST y editables por quien puede editar la pieza. Una sola definición (`museopostal_coleccion_campos()` en `includes/modelo.php`) alimenta el registro, la caja del editor y el bloque de datos. También `mp_piezas`, `mp_fuentes` y `mp_revisado` en los artículos, y los metadatos de término de salas y épocas.
 - **Caja «Ficha técnica»** en la barra lateral del editor, en PHP y HTML. Los seis grupos (A-F) están plegados y siempre visibles: ocultarlos según el tipo de pieza no funcionaría sin JavaScript. Avisa de los campos obligatorios vacíos y de un número de inventario repetido.
 - **Bloques** registrados solo en PHP:
+  - `museopostal/sala-cabecera`: la imagen de cabecera de la sala que se está viendo (`mp_sala_cabecera_id`), a sangre; sin imagen no pinta nada.
   - `museopostal/datos-pieza`: vistas `imagenes` (anverso y reverso sobre montura, enlace al original, licencia y descarga si la licencia lo permite), `clave` (4 datos según el tipo), `ficha` («Todos los datos» en un `<details>`, solo los campos rellenos), `cita` («Cómo citar esta pieza») y `anotaciones` (puntos numerados para el Aula).
   - `museopostal/video`: fachada de clic. Sin JavaScript es un enlace a youtube-nocookie.com; con JavaScript el clic incrusta el vídeo. Nada se pide a YouTube antes del clic, ni siquiera la miniatura.
   - `museopostal/cifras`: piezas publicadas y salas con alguna pieza.

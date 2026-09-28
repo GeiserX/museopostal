@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Registra los cinco bloques.
+ * Registra los seis bloques.
  */
 function museopostal_coleccion_registrar_bloques(): void {
 	$comunes = array(
@@ -101,6 +101,19 @@ function museopostal_coleccion_registrar_bloques(): void {
 				'description'     => __( 'La pieza cuyo día y mes coinciden con hoy o, si no hay, la próxima.', 'museopostal-coleccion' ),
 				'icon'            => 'calendar-alt',
 				'render_callback' => 'museopostal_coleccion_render_efemeride',
+			)
+		)
+	);
+
+	register_block_type(
+		'museopostal/sala-cabecera',
+		array_merge(
+			$comunes,
+			array(
+				'title'           => __( 'Cabecera de la sala', 'museopostal-coleccion' ),
+				'description'     => __( 'La imagen de cabecera de la sala que se está viendo (metadato mp_sala_cabecera_id del término).', 'museopostal-coleccion' ),
+				'icon'            => 'format-image',
+				'render_callback' => 'museopostal_coleccion_render_sala_cabecera',
 			)
 		)
 	);
@@ -672,6 +685,42 @@ function museopostal_coleccion_render_efemeride(): string {
 		esc_url( $enlace ),
 		esc_html( $titulo ),
 		has_excerpt( $id ) ? '<p>' . esc_html( get_the_excerpt( $id ) ) . '</p>' : ''
+	);
+}
+
+/* ------------------------------------------------------------------ */
+/* museopostal/sala-cabecera                                           */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Imagen de cabecera de la sala que se está viendo: un detalle macro de una
+ * pieza real (02 patrón 19), a sangre. Sin sala o sin imagen no pinta nada.
+ */
+function museopostal_coleccion_render_sala_cabecera(): string {
+	$termino = get_queried_object();
+	if ( ! $termino instanceof WP_Term || 'sala' !== $termino->taxonomy ) {
+		return '';
+	}
+	$adjunto = (int) get_term_meta( $termino->term_id, 'mp_sala_cabecera_id', true );
+	if ( ! $adjunto || ! wp_attachment_is_image( $adjunto ) ) {
+		return '';
+	}
+	$imagen = wp_get_attachment_image(
+		$adjunto,
+		'full',
+		false,
+		array(
+			'loading'       => false,
+			'fetchpriority' => 'high',
+		)
+	);
+	if ( '' === $imagen ) {
+		return '';
+	}
+	return sprintf(
+		'<figure %1$s>%2$s</figure>',
+		get_block_wrapper_attributes( array( 'class' => 'mp-sala-cabecera alignfull' ) ),
+		$imagen
 	);
 }
 

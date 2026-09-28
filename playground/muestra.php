@@ -7,7 +7,8 @@
  * ejecuta después con WordPress cargado:
  *
  * 1. crea un adjunto por imagen, con su texto alternativo;
- * 2. pone el anverso como imagen destacada y el reverso en mp_reverso_id;
+ * 2. pone el anverso como imagen destacada y el reverso en mp_reverso_id,
+ *    y una de esas imágenes como cabecera de cada sala;
  * 3. cambia {{muestra}} en el contenido por la URL real de las imágenes;
  * 4. fija la portada y la página de artículos, y regenera las URL.
  *
@@ -85,6 +86,23 @@ foreach ( $museopostal_imagenes as $museopostal_slug => $museopostal_datos ) {
 	if ( isset( $museopostal_datos[3] ) ) {
 		update_post_meta( $museopostal_post->ID, 'mp_reverso_id', $museopostal_adjunto( $museopostal_datos[3], $museopostal_datos[4], $museopostal_post->ID ) );
 	}
+}
+
+// Cabecera de cada sala: el anverso de una de sus piezas (mp_sala_cabecera_id).
+$museopostal_cabeceras = array(
+	'antes-del-sello'             => 'hoja-bloque-300-anos-correos-2016',
+	'region-de-murcia'            => 'carta-de-aguilas-a-murcia-1866',
+	'correo-en-guerra'            => 'tarjeta-del-soldado-1918',
+	'el-correo-en-la-pintura'     => 'san-jeronimo-leyendo-una-carta',
+	'sellos-que-cuentan-el-mundo' => 'hoja-bloque-eclipse-solar-2026',
+);
+foreach ( $museopostal_cabeceras as $museopostal_sala => $museopostal_slug ) {
+	$museopostal_termino = get_term_by( 'slug', $museopostal_sala, 'sala' );
+	$museopostal_pieza   = get_page_by_path( $museopostal_slug, OBJECT, 'pieza' );
+	if ( ! $museopostal_termino || ! $museopostal_pieza || ! get_post_thumbnail_id( $museopostal_pieza ) ) {
+		throw new RuntimeException( 'No se pudo poner la cabecera de la sala ' . $museopostal_sala );
+	}
+	update_term_meta( $museopostal_termino->term_id, 'mp_sala_cabecera_id', (int) get_post_thumbnail_id( $museopostal_pieza ) );
 }
 
 // {{muestra}} en el contenido → URL real. Directo en la tabla: sin kses ni revisiones.

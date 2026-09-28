@@ -44,6 +44,7 @@
 		},
 		"custom": {
 			"filete": "#B08D2E",
+			"logo": "propuesta-a",
 			"textoMontura": "var(--wp--preset--color--base)"
 		},
 		"spacing": {

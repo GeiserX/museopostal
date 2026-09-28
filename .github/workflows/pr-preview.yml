@@ -2,6 +2,8 @@ name: Vista previa en Playground
 
 # Añade a la PR un comentario con el botón de WordPress Playground: abre el tema
 # y el plugin de esta rama, en su commit exacto, con la muestra de playground/.
+# Debajo, un enlace por variación de estilo (theme/museopostal/styles/*.json),
+# cada uno con la variación ya aplicada.
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -21,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
-      - name: Blueprint de esta PR
+      - name: Blueprint de esta PR y enlaces por variación
         id: blueprint
         env:
           REPO: ${{ github.repository }}
@@ -33,6 +35,21 @@ jobs:
             cat "$RUNNER_TEMP/blueprint.json"
             echo
             echo 'FIN_DEL_BLUEPRINT'
+          } >> "$GITHUB_OUTPUT"
+          # Un enlace por variación, con el blueprint dentro de la URL (como hace el botón).
+          enlaces=""
+          for f in theme/museopostal/styles/*.json; do
+            [ -e "$f" ] || continue
+            if ! node -e 'process.exit(require(require("path").resolve(process.argv[1])).blockTypes ? 1 : 0)' "$f"; then continue; fi
+            v="$(basename "$f" .json)"
+            titulo="$(node -e 'process.stdout.write(require(require("path").resolve(process.argv[1])).title || process.argv[2])' "$f" "$v")"
+            url="$(node playground/vista-previa.mjs "$REPO" "$SHA" "$v" | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>process.stdout.write("https://playground.wordpress.net/?blueprint-url=data:application/json,"+encodeURIComponent(d)))')"
+            enlaces="$enlaces- [$titulo]($url)"$'\n'
+          done
+          {
+            echo 'enlaces<<FIN_DE_LOS_ENLACES'
+            printf '%s' "$enlaces"
+            echo 'FIN_DE_LOS_ENLACES'
           } >> "$GITHUB_OUTPUT"
       - uses: WordPress/action-wp-playground-pr-preview@v4
         with:
@@ -46,4 +63,7 @@ jobs:
 
             Se abre en el navegador, también en el móvil, sin instalar nada. Carga el tema y el plugin de este commit ({{PR_HEAD_SHA}}) con 8 piezas reales, 2 artículos y unas páginas de muestra. Tarda alrededor de un minuto la primera vez. Lo que cambies allí no afecta a museopostal.org.
 
+            El botón abre el tema base (sin variación). Las tres direcciones visuales, cada una con su logo:
+
+            ${{ steps.blueprint.outputs.enlaces }}
             Qué mirar: la portada, una sala (menú Salas › La Región de Murcia) y una ficha (por ejemplo, la carta de Águilas a Murcia de 1866).

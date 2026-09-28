@@ -3,7 +3,8 @@
  * Museo Postal: funciones del tema.
  *
  * Solo lo que theme.json no puede hacer: la hoja de estilos, las
- * categorías de patrones, los estilos de bloque y el formato WebP.
+ * categorías de patrones, los estilos de bloque, el formato WebP, la
+ * precarga de las fuentes y el favicon de la variación activa.
  * El modelo del museo (piezas, salas, metadatos) vive en el plugin
  * museopostal-coleccion para sobrevivir a un cambio de tema.
  *
@@ -98,3 +99,55 @@ function museopostal_formato_webp( array $formatos ): array {
 	return $formatos;
 }
 add_filter( 'image_editor_output_format', 'museopostal_formato_webp' );
+
+/**
+ * Precarga los dos primeros woff2 de la variación activa (BRIEF §7.1): la
+ * redonda de titulares y la de cuerpo o interfaz. Con las fuentes del sistema
+ * (tema base) no imprime nada.
+ */
+function museopostal_precarga_fuentes(): void {
+	$familias = wp_get_global_settings( array( 'typography', 'fontFamilies' ) );
+	$lista    = array();
+	foreach ( array( 'custom', 'theme' ) as $origen ) {
+		if ( ! empty( $familias[ $origen ] ) && is_array( $familias[ $origen ] ) ) {
+			$lista = $familias[ $origen ];
+			break;
+		}
+	}
+	$urls = array();
+	foreach ( $lista as $familia ) {
+		foreach ( (array) ( $familia['fontFace'] ?? array() ) as $cara ) {
+			if ( 'italic' === ( $cara['fontStyle'] ?? 'normal' ) ) {
+				continue;
+			}
+			$src = (array) ( $cara['src'] ?? array() );
+			$src = (string) reset( $src );
+			if ( str_starts_with( $src, 'file:./' ) ) {
+				$src = get_theme_file_uri( substr( $src, 7 ) );
+			}
+			if ( str_ends_with( $src, '.woff2' ) && ! in_array( $src, $urls, true ) ) {
+				$urls[] = $src;
+			}
+		}
+	}
+	foreach ( array_slice( $urls, 0, 2 ) as $url ) {
+		printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n", esc_url( $url ) );
+	}
+}
+add_action( 'wp_head', 'museopostal_precarga_fuentes', 2 );
+
+/**
+ * Favicon SVG de la propuesta de logo que elige la variación (settings.custom.logo),
+ * mientras no haya un icono del sitio subido en Ajustes › Identidad del sitio.
+ */
+function museopostal_favicon(): void {
+	if ( has_site_icon() ) {
+		return;
+	}
+	$logo = sanitize_key( (string) wp_get_global_settings( array( 'custom', 'logo' ) ) );
+	if ( '' === $logo || ! is_readable( get_theme_file_path( 'assets/logo/' . $logo . '-favicon.svg' ) ) ) {
+		return;
+	}
+	printf( '<link rel="icon" href="%s" type="image/svg+xml">' . "\n", esc_url( get_theme_file_uri( 'assets/logo/' . $logo . '-favicon.svg' ) ) );
+}
+add_action( 'wp_head', 'museopostal_favicon', 2 );

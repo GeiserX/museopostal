@@ -2,9 +2,15 @@ name: Capturas
 
 # Arranca WordPress Playground en el runner con el tema, el plugin y la muestra,
 # y fotografía la portada, una sala y una ficha a 1440 y 500 px, para el tema
-# base y para cada variación de theme/museopostal/styles/. Las capturas se
-# suben como artefacto y, en PR de este repositorio, se guardan en la rama
-# (docs/capturas/). Si no cambia nada, no hay commit.
+# base y para cada variación de theme/museopostal/styles/ (cada una con su
+# logo). Genera además un blueprint de Playground por variación, fijado al
+# commit de la PR.
+#
+# Todo se sube como artefacto y, en PR de este repositorio, se publica en la
+# rama capturas/pr-<n> (una rama de publicación que se reescribe entera en
+# cada ejecución; nunca se toca la rama de la PR). La descripción de la PR
+# enlaza las imágenes y los blueprints de esa rama por raw.githubusercontent.com.
+# Ningún flujo escucha pushes a capturas/**: la CI solo escucha main y las PR.
 on:
   pull_request:
     paths:
@@ -31,6 +37,7 @@ jobs:
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: false
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
@@ -72,8 +79,29 @@ jobs:
             exit 1
           fi
           echo "Playground listo con la muestra tras $((i * 2)) s"
-      - name: Capturas y comprobaciones (200 y un solo H1)
-        run: node .github/scripts/capturas.mjs http://127.0.0.1:9400
+      - name: Capturas y comprobaciones (200, un H1, imágenes, fuentes, logo, sin desborde)
+        id: capturas
+        # Aunque una comprobación falle, las capturas se suben y se publican
+        # para poder ver qué está mal; el job termina en rojo igualmente.
+        continue-on-error: true
+        run: node .github/scripts/capturas.mjs http://127.0.0.1:9400 "$RUNNER_TEMP/capturas"
+      - name: Blueprints de Playground por variación (fijados a este commit)
+        env:
+          REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/capturas/blueprints"
+          variaciones="base"
+          for f in theme/museopostal/styles/*.json; do
+            [ -e "$f" ] || continue
+            if node -e 'process.exit(require(require("path").resolve(process.argv[1])).blockTypes ? 1 : 0)' "$f"; then
+              variaciones="$variaciones $(basename "$f" .json)"
+            fi
+          done
+          for v in $variaciones; do
+            node playground/vista-previa.mjs "$REPO" "$SHA" "$v" > "$RUNNER_TEMP/capturas/blueprints/$v.json"
+          done
+          echo "Blueprints: $variaciones"
       - name: Registro de Playground
         if: always()
         run: tail -n 80 "$RUNNER_TEMP/playground.log" || true
@@ -81,26 +109,53 @@ jobs:
         if: always()
         with:
           name: capturas-${{ github.event.pull_request.head.sha }}
-          path: docs/capturas/
+          path: ${{ runner.temp }}/capturas/
           if-no-files-found: warn
           retention-days: 30
-      - name: Guardar las capturas en la rama de la PR
-        if: github.event.pull_request.head.repo.full_name == github.repository
+      - name: Publicar en la rama capturas/pr-${{ github.event.pull_request.number }}
+        if: always() && github.event.pull_request.head.repo.full_name == github.repository
         env:
-          RAMA: ${{ github.event.pull_request.head.ref }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NUMERO: ${{ github.event.pull_request.number }}
           SHA: ${{ github.event.pull_request.head.sha }}
+          ESTADO: ${{ steps.capturas.outcome }}
         run: |
-          git add docs/capturas
-          if git diff --cached --quiet; then
-            echo "Las capturas no han cambiado: no hay commit."
+          origen="$RUNNER_TEMP/capturas"
+          if [ ! -d "$origen" ] || [ -z "$(ls -A "$origen")" ]; then
+            echo "::warning::No hay capturas que publicar"
             exit 0
           fi
+          rama="capturas/pr-$NUMERO"
+          pub="$RUNNER_TEMP/publicacion"
+          rm -rf "$pub" && mkdir -p "$pub" && cp -R "$origen/." "$pub/"
+          {
+            echo "# Capturas de la PR #$NUMERO"
+            echo
+            echo "Rama de publicación generada por el flujo Capturas a partir del commit \`${SHA::7}\` (comprobaciones: $ESTADO). Se reescribe entera en cada ejecución; no editar a mano."
+            echo
+            echo "Cada carpeta es una variación (\`base\` es el tema sin variación) con \`portada\`, \`sala\` y \`ficha\` a 1440 y 500 px. En \`blueprints/\` está el blueprint de Playground de cada variación, fijado a ese commit: \`https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/$REPO/$rama/blueprints/<variación>.json\`."
+          } > "$pub/README.md"
+          cd "$pub"
+          git init -q -b capturas
+          git add -A
           git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
-              commit -m "docs(capturas): capturas de ${SHA::7}"
-          for intento in 1 2 3; do
-            if git pull --rebase origin "$RAMA" && git push origin "HEAD:$RAMA"; then exit 0; fi
-            sleep 10
-          done
-          echo "::error::No se pudieron subir las capturas"
+              commit -q -m "capturas de ${SHA::7} (PR #$NUMERO)"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO}.git" "HEAD:refs/heads/$rama"
+          {
+            echo "### Capturas publicadas en \`$rama\`"
+            echo
+            for png in $(cd "$pub" && find . -name '*.png' | sort); do
+              echo "- https://raw.githubusercontent.com/$REPO/$rama/${png#./}"
+            done
+            echo
+            for bp in $(cd "$pub" && find blueprints -name '*.json' | sort); do
+              echo "- Playground $(basename "$bp" .json): https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/$REPO/$rama/$bp"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Resultado de las comprobaciones
+        if: steps.capturas.outcome != 'success'
+        run: |
+          echo "::error::Las capturas tienen comprobaciones en rojo (ver el paso «Capturas y comprobaciones»)"
           exit 1

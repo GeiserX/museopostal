@@ -71,12 +71,23 @@ Update URI: https://github.com/GeiserX/museopostal
 	border-radius: 0 !important;
 	box-shadow: none;
 }
+/* El texto sobre la montura lo fija cada variación en settings.custom.textoMontura
+ * (una montura negra necesita texto claro); por defecto es el color del texto. */
+.mp-montura figcaption,
+.is-style-montura figcaption,
+.mp-montura figcaption a,
+.is-style-montura figcaption a {
+	color: var(--wp--custom--texto-montura, var(--wp--preset--color--contrast));
+}
 .mp-montura figcaption,
 .is-style-montura figcaption {
 	margin-top: 0.75rem;
 	font-family: var(--wp--preset--font-family--ui);
 	font-size: var(--wp--preset--font-size--small);
-	color: var(--wp--preset--color--contrast);
+}
+.mp-montura :focus-visible,
+.is-style-montura :focus-visible {
+	outline-color: var(--wp--custom--texto-montura, var(--wp--preset--color--accent));
 }
 
 /* ---------------- Filete dentado ---------------------------------
@@ -251,6 +262,18 @@ dl.mp-datos {
 .mp-marca {
 	gap: 0;
 }
+/* El logo (SVG en línea, elegido en settings.custom.logo) toma el acento y el
+ * color principal de la variación activa. Una sola vez por pantalla (§6.4). */
+.mp-logo {
+	display: inline-block;
+	line-height: 0;
+}
+.mp-logo svg {
+	display: block;
+	width: auto;
+	height: clamp(3rem, 6vw, 4.25rem);
+	max-width: 100%;
+}
 .mp-marca .wp-block-site-tagline {
 	margin: 0;
 }
@@ -297,6 +320,17 @@ dl.mp-datos {
 	font-weight: 600;
 	color: var(--wp--preset--color--accent);
 	margin-bottom: 0;
+}
+/* Cabecera de sala: detalle macro de una pieza real a sangre (02 patrón 19). */
+.mp-sala-cabecera {
+	margin: 0 0 var(--wp--preset--spacing--40);
+	background: var(--wp--preset--color--mount);
+}
+.mp-sala-cabecera img {
+	display: block;
+	width: 100%;
+	height: clamp(11rem, 30vw, 22rem);
+	object-fit: cover;
 }
 .mp-portada__vitrinas {
 	margin-top: var(--wp--preset--spacing--50);

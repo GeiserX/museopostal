@@ -7,8 +7,8 @@ Lo necesario para ver el tema y el plugin con contenido real, en el navegador o 
 | `blueprint.json` | Receta de Playground: WordPress 7.1 con PHP 8.4 en español, activa plugin y tema, copia las imágenes, importa la muestra y la completa. Espera que el tema y el plugin ya estén en `wp-content`. |
 | `muestra.xml` | Exportación WXR con 8 piezas, 2 artículos y 6 páginas. |
 | `muestra/` | Las 13 imágenes de la muestra. Los nombres siguen la costumbre `{año}_{edifil}_{variante}` (BRIEF §5.4). |
-| `muestra.php` | Segundo paso: crea los adjuntos con su texto alternativo, pone anverso y reverso a cada pieza y fija la portada y la página de artículos. Si algo falta, para el blueprint en rojo. |
-| `vista-previa.mjs` | Genera el blueprint del botón de cada PR: instala tema y plugin desde el commit de la PR y cambia cada recurso local por su URL de ese commit. |
+| `muestra.php` | Segundo paso: crea los adjuntos con su texto alternativo, pone anverso y reverso a cada pieza, una imagen de cabecera a cada sala y fija la portada y la página de artículos. Si algo falta, para el blueprint en rojo. |
+| `vista-previa.mjs` | Genera el blueprint del botón de cada PR: instala tema y plugin desde el commit de la PR y cambia cada recurso local por su URL de ese commit. Con un tercer argumento (`album`, `estafeta`, `sala-blanca`) deja esa variación aplicada, guardándola en el post `wp_global_styles` del usuario como hace el Editor del sitio. |
 
 ## Qué contenido lleva
 

@@ -54,6 +54,7 @@
 		},
 		"custom": {
 			"filete": "var(--wp--preset--color--accent)",
+			"logo": "propuesta-b",
 			"mostaza": "#E3B23C"
 		},
 		"typography": {

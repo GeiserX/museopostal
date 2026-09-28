@@ -31,7 +31,9 @@
 			]
 		},
 		"custom": {
-			"filete": "var(--wp--preset--color--accent)"
+			"filete": "var(--wp--preset--color--accent)",
+			"logo": "propuesta-a",
+			"textoMontura": "var(--wp--preset--color--contrast)"
 		},
 		"dimensions": {
 			"aspectRatio": false,

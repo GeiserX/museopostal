@@ -27,9 +27,10 @@ const playground = opcion('--playground', join(raiz, 'playground'));
 const ESQUEMA_TEMA = 'https://schemas.wp.org/wp/7.1/theme.json';
 const ESQUEMA_BLUEPRINT = 'https://playground.wordpress.net/blueprint-schema.json';
 const SLUGS = ['base', 'contrast', 'primary', 'secondary', 'accent', 'mount', 'surface'];
-// Texto sobre fondo que el tema usa de verdad (style.css y theme.json).
+// Texto sobre fondo que el tema usa de verdad (style.css y theme.json). El texto
+// sobre la montura es el slug de settings.custom.textoMontura (por defecto contrast).
 const PARES = [
-	['contrast', 'base'], ['contrast', 'surface'], ['contrast', 'mount'],
+	['contrast', 'base'], ['contrast', 'surface'], ['textoMontura', 'mount'],
 	['primary', 'base'], ['primary', 'surface'],
 	['secondary', 'base'], ['secondary', 'surface'],
 	['accent', 'base'], ['accent', 'surface'],
@@ -79,22 +80,31 @@ const contraste = (a, b) => {
 };
 if (Math.abs(contraste('#000000', '#FFFFFF') - 21) > 0.01) mal('La fórmula de contraste no da 21:1 para negro sobre blanco');
 
-const paletaBase = Object.fromEntries((leer(temaJson).settings?.color?.palette ?? []).map((c) => [c.slug, c.color]));
-const paletas = [['theme.json', paletaBase]];
+const temaBase = leer(temaJson);
+const paletaBase = Object.fromEntries((temaBase.settings?.color?.palette ?? []).map((c) => [c.slug, c.color]));
+const customBase = temaBase.settings?.custom ?? {};
+const slugTextoMontura = (custom) => {
+	const valor = String(custom.textoMontura ?? 'var(--wp--preset--color--contrast)');
+	const m = /^var\(--wp--preset--color--([a-z0-9-]+)\)$/.exec(valor);
+	return m ? m[1] : valor; // un valor que no es un preset no se puede medir: falla abajo
+};
+const paletas = [['theme.json', paletaBase, slugTextoMontura(customBase)]];
 for (const fichero of variaciones) {
 	const datos = leer(fichero);
 	if (datos.blockTypes) continue; // estilo de sección, no una variación completa
 	const propia = Object.fromEntries((datos.settings?.color?.palette ?? []).map((c) => [c.slug, c.color]));
-	paletas.push([fichero.split('/').pop(), { ...paletaBase, ...propia }]);
+	paletas.push([fichero.split('/').pop(), { ...paletaBase, ...propia }, slugTextoMontura({ ...customBase, ...(datos.settings?.custom ?? {}) })]);
 }
-for (const [nombre, paleta] of paletas) {
+for (const [nombre, paleta, textoMontura] of paletas) {
 	for (const slug of SLUGS) {
 		if (!/^#[0-9a-f]{6}$/i.test(paleta[slug] ?? '')) mal(`${nombre}: falta el color «${slug}» o no es #RRGGBB`);
 	}
-	const bajos = PARES.filter(([t, f]) => paleta[t] && paleta[f] && contraste(paleta[t], paleta[f]) < 4.5)
+	if (!paleta[textoMontura]) mal(`${nombre}: settings.custom.textoMontura debe ser var(--wp--preset--color--<slug>) con un slug de la paleta, no «${textoMontura}»`);
+	const pares = PARES.map(([t, f]) => [t === 'textoMontura' ? textoMontura : t, f]);
+	const bajos = pares.filter(([t, f]) => paleta[t] && paleta[f] && contraste(paleta[t], paleta[f]) < 4.5)
 		.map(([t, f]) => `${t} sobre ${f} ${contraste(paleta[t], paleta[f]).toFixed(2)}:1`);
 	if (bajos.length) mal(`${nombre}: contraste por debajo de 4,5:1: ${bajos.join(', ')}`);
-	else bien(`${nombre}: ${PARES.length} pares de texto y fondo a 4,5:1 o más`);
+	else bien(`${nombre}: ${pares.length} pares de texto y fondo a 4,5:1 o más (texto sobre la montura: ${textoMontura})`);
 }
 
 // 3. Blueprints.

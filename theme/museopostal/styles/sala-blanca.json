@@ -15,7 +15,8 @@
 			]
 		},
 		"custom": {
-			"filete": "var(--wp--preset--color--mount)"
+			"filete": "var(--wp--preset--color--mount)",
+			"logo": "propuesta-c"
 		},
 		"spacing": {
 			"spacingSizes": [

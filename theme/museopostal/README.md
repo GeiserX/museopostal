@@ -10,7 +10,11 @@ Tema de bloques del Museo Postal y Filatélico de la Región de Murcia. Requiere
 - 15 plantillas y 2 partes (`header`, `footer`). La cabecera y el pie son patrones PHP (`patterns/cabecera.php`, `patterns/pie.php`) para que los enlaces salgan de `home_url()` y funcionen igual en museopostal.org, en el clon de pruebas y en Playground.
 - Patrones del museo: `ficha-pieza`, `sala-intro`, `recorrido`, `actividad-aula`, `videoteca-item`, `recurso`, `museo-del-mundo`, `articulo`, `portada-hero`, `portada-puertas`, `portada-efemeride`, `portada-cifras` y el auxiliar `rejilla-piezas`.
 
-Todavía no hay fuentes propias: el tema usa las del sistema. Cada dirección visual trae sus woff2 en su variación (siguiente fase).
+El tema base usa las fuentes del sistema. Cada dirección visual (`styles/album.json`, `styles/estafeta.json`, `styles/sala-blanca.json`) trae sus woff2 en `assets/fonts/<slug>/`, y `functions.php` precarga los dos primeros de la variación activa.
+
+## Logo
+
+Las tres propuestas están en `assets/logo/` (`propuesta-{a,b,c}-{marca,horizontal,favicon}.svg`; el porqué de cada una, en [`docs/logo.md`](../../docs/logo.md)). La cabecera pinta en línea la horizontal que elige `settings.custom.logo` (por defecto `propuesta-a`; Álbum usa la A, Estafeta la B y Sala blanca la C), así el SVG toma el acento y el color principal de la variación. `functions.php` añade el favicon de la misma propuesta mientras no haya un icono del sitio subido en Ajustes › Identidad del sitio. Si `settings.custom.logo` está vacío, la cabecera vuelve al nombre del sitio en texto.
 
 ## Paleta: los siete colores que cambia cada variación
 
@@ -30,6 +34,8 @@ La CI comprueba 12 pares de texto y fondo (por ejemplo `contrast` sobre `base`, 
 
 El color del filete dentado no está en la paleta, porque no es texto y puede ser un oro de 2,6:1: va en `settings.custom.filete` y sale como `--wp--custom--filete`. Por defecto usa `accent`.
 
+El texto sobre la montura (pies de foto y sus enlaces) va en `settings.custom.textoMontura`, como `var(--wp--preset--color--<slug>)`; por defecto `contrast`, y Álbum usa `base` porque su montura es negra. La CI mide ese par (`textoMontura` sobre `mount`) con el slug que declare cada variación.
+
 ## Tipografía
 
 Tres slugs de familia. Con dos familias, dos de ellos apuntan a la misma:
@@ -44,7 +50,7 @@ Tamaños cerrados, fluidos entre móvil y escritorio: `small` (16 px), `medium` 
 
 ## Cómo se añade una variación
 
-Un fichero `styles/<slug>.json` con `"version": 3`, `"title"`, y lo que cambie: `settings.color.palette` (los siete slugs), `settings.typography.fontFamilies` (los tres slugs, con `fontFace` apuntando a `file:./assets/fonts/…woff2`), `settings.custom.filete` y los `styles` que haga falta. La CI lo valida contra el esquema de WordPress 7.1, mide su contraste y el job de capturas lo fotografía solo.
+Un fichero `styles/<slug>.json` con `"version": 3`, `"title"`, y lo que cambie: `settings.color.palette` (los siete slugs), `settings.typography.fontFamilies` (los tres slugs, con `fontFace` apuntando a `file:./assets/fonts/…woff2`), `settings.custom.filete`, `settings.custom.logo`, `settings.custom.textoMontura` y los `styles` que haga falta. La CI lo valida contra el esquema de WordPress 7.1, mide su contraste, el job de capturas lo fotografía solo (portada, sala y ficha a 1440 y 500 px, en la rama `capturas/pr-<n>`) y la vista previa de la PR le añade su propio enlace de Playground.
 
 ## Principios que el tema hace cumplir (BRIEF §6.1)
 
