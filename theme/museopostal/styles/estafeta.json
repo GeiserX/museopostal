@@ -1,0 +1,312 @@
+{
+	"$schema": "https://schemas.wp.org/wp/7.1/theme.json",
+	"version": 3,
+	"title": "Estafeta",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"slug": "base",
+					"color": "#EDE3CF",
+					"name": "Kraft"
+				},
+				{
+					"slug": "surface",
+					"color": "#FFFFFF",
+					"name": "Ficha blanca"
+				},
+				{
+					"slug": "contrast",
+					"color": "#1C1B19",
+					"name": "Negro tinta"
+				},
+				{
+					"slug": "primary",
+					"color": "#24466B",
+					"name": "Azul matasellos"
+				},
+				{
+					"slug": "secondary",
+					"color": "#55524C",
+					"name": "Grafito"
+				},
+				{
+					"slug": "accent",
+					"color": "#A4262C",
+					"name": "Lacre"
+				},
+				{
+					"slug": "mount",
+					"color": "#EDE3CF",
+					"name": "Montura kraft"
+				}
+			],
+			"duotone": [
+				{
+					"slug": "azul-matasellos",
+					"colors": [
+						"#24466B",
+						"#EDE3CF"
+					],
+					"name": "Foto de archivo en azul"
+				}
+			]
+		},
+		"custom": {
+			"filete": "var(--wp--preset--color--accent)",
+			"mostaza": "#E3B23C"
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "heading",
+					"name": "Titulares (Archivo estrecha)",
+					"fontFamily": "Archivo, 'Arial Narrow', Arial, sans-serif"
+				},
+				{
+					"slug": "body",
+					"name": "Cuerpo (Archivo)",
+					"fontFamily": "Archivo, 'Arial Narrow', Arial, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Archivo",
+							"fontStyle": "normal",
+							"fontWeight": "100 900",
+							"fontStretch": "62% 125%",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/estafeta/archivo-latin-variable.woff2"
+							],
+							"unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+						},
+						{
+							"fontFamily": "Archivo",
+							"fontStyle": "italic",
+							"fontWeight": "100 900",
+							"fontStretch": "62% 125%",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/estafeta/archivo-italic-latin-variable.woff2"
+							],
+							"unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+						}
+					]
+				},
+				{
+					"slug": "ui",
+					"name": "Interfaz (Archivo)",
+					"fontFamily": "Archivo, 'Arial Narrow', Arial, sans-serif"
+				},
+				{
+					"slug": "mono",
+					"name": "Datos (IBM Plex Mono)",
+					"fontFamily": "'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace",
+					"fontFace": [
+						{
+							"fontFamily": "IBM Plex Mono",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/estafeta/ibm-plex-mono-latin-400.woff2"
+							],
+							"unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+						},
+						{
+							"fontFamily": "IBM Plex Mono",
+							"fontStyle": "normal",
+							"fontWeight": "600",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/estafeta/ibm-plex-mono-latin-600.woff2"
+							],
+							"unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{
+					"slug": "small",
+					"size": "1rem",
+					"name": "Pequeño",
+					"fluid": false
+				},
+				{
+					"slug": "medium",
+					"size": "1.1875rem",
+					"name": "Normal",
+					"fluid": {
+						"min": "1.125rem",
+						"max": "1.25rem"
+					}
+				},
+				{
+					"slug": "large",
+					"size": "1.625rem",
+					"name": "Grande",
+					"fluid": {
+						"min": "1.375rem",
+						"max": "1.75rem"
+					}
+				},
+				{
+					"slug": "x-large",
+					"size": "2.25rem",
+					"name": "Muy grande",
+					"fluid": {
+						"min": "1.75rem",
+						"max": "2.625rem"
+					}
+				},
+				{
+					"slug": "xx-large",
+					"size": "3.25rem",
+					"name": "Enorme",
+					"fluid": {
+						"min": "2.5rem",
+						"max": "3.875rem"
+					}
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--base)",
+			"text": "var(--wp--preset--color--contrast)"
+		},
+		"spacing": {
+			"blockGap": "1.5rem"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--body)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"fontWeight": "400",
+			"lineHeight": "1.6"
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--primary)"
+				},
+				"typography": {
+					"textDecoration": "underline"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--accent)"
+					}
+				}
+			},
+			"heading": {
+				"color": {
+					"text": "var(--wp--preset--color--contrast)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "700",
+					"lineHeight": "1.1"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--xx-large)",
+					"fontWeight": "800"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--x-large)"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--large)",
+					"fontWeight": "600"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--medium)",
+					"fontWeight": "600"
+				}
+			},
+			"button": {
+				"border": {
+					"radius": "0",
+					"width": "2px",
+					"style": "solid",
+					"color": "var(--wp--preset--color--primary)"
+				},
+				"color": {
+					"background": "var(--wp--preset--color--primary)",
+					"text": "var(--wp--preset--color--base)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--ui)",
+					"fontSize": "var(--wp--preset--font-size--small)",
+					"fontWeight": "700",
+					"textTransform": "uppercase",
+					"letterSpacing": "0.05em"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--accent)",
+						"text": "var(--wp--preset--color--base)"
+					},
+					"border": {
+						"color": "var(--wp--preset--color--accent)"
+					}
+				}
+			},
+			"caption": {
+				"color": {
+					"text": "var(--wp--preset--color--secondary)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--ui)",
+					"fontSize": "var(--wp--preset--font-size--small)"
+				}
+			}
+		},
+		"blocks": {
+			"core/site-title": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontSize": "var(--wp--preset--font-size--large)",
+					"fontWeight": "800",
+					"lineHeight": "1.1"
+				},
+				"elements": {
+					"link": {
+						"color": {
+							"text": "var(--wp--preset--color--contrast)"
+						},
+						"typography": {
+							"textDecoration": "none"
+						}
+					}
+				}
+			},
+			"core/navigation": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--ui)",
+					"fontSize": "var(--wp--preset--font-size--small)",
+					"fontWeight": "600"
+				}
+			},
+			"core/post-title": {
+				"typography": {
+					"fontWeight": "700"
+				}
+			},
+			"core/quote": {
+				"typography": {
+					"fontStyle": "italic"
+				}
+			}
+		},
+		"css": "h1, h2, h3, h4, h5, h6, .wp-block-site-title { font-stretch: 78%; }\n.wp-block-site-title { text-transform: uppercase; letter-spacing: 0.02em; }\n:root .mp-cabecera { border-bottom: 3px solid var(--wp--preset--color--contrast); }\n.mp-cabecera .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content { text-transform: uppercase; letter-spacing: 0.05em; }\n:root .wp-block-search__input { border: 2px solid var(--wp--preset--color--contrast); background: var(--wp--preset--color--surface); color: var(--wp--preset--color--contrast); border-radius: 0; }\n:root .mp-pie { background: var(--wp--preset--color--contrast); color: var(--wp--preset--color--base); }\n:root .mp-pie a, :root .mp-pie .wp-block-site-title a, :root .mp-pie .wp-block-site-tagline, :root .mp-pie .mp-pie__copyright { color: var(--wp--preset--color--base); }\n:root .mp-pie a:hover { text-decoration-thickness: 3px; }\n:root .mp-pie :where(a, button):focus-visible { outline-color: var(--wp--preset--color--base); }\n:root .mp-datos dd, :root .mp-cita, :root .mp-cifras, :root .mp-licencia, :root .is-style-cifras, :root .has-tabular-nums, :root .wp-block-post-date { font-family: var(--wp--preset--font-family--mono); }\n:root .mp-datos dd { font-size: var(--wp--preset--font-size--small); }\n:root .mp-cifras strong { font-family: var(--wp--preset--font-family--heading); font-stretch: 78%; }\n:root .mp-datos dt { text-transform: uppercase; letter-spacing: 0.06em; }\n:root .mp-puertas__etiqueta, :root .mp-sala-intro__etiqueta, :root .mp-faceta__etiqueta { display: inline-block; background: var(--wp--custom--mostaza); color: var(--wp--preset--color--contrast); padding: 0.15rem 0.5rem; font-family: var(--wp--preset--font-family--mono); text-transform: uppercase; letter-spacing: 0.04em; }\n:root .mp-efemeride__fecha { display: grid; place-items: center; box-sizing: border-box; width: 10.5rem; aspect-ratio: 1; margin-block: var(--wp--preset--spacing--30); padding: 1.25rem; border: 5px double var(--wp--preset--color--primary); border-radius: 50%; color: var(--wp--preset--color--primary); font-family: var(--wp--preset--font-family--mono); font-size: var(--wp--preset--font-size--small); font-weight: 600; line-height: 1.25; text-align: center; text-transform: uppercase; transform: rotate(-6deg); }\n:root .is-style-montura img, :root .mp-montura img { filter: drop-shadow(0 1px 1px color-mix(in srgb, var(--wp--preset--color--contrast) 35%, transparent)) drop-shadow(0 3px 6px color-mix(in srgb, var(--wp--preset--color--contrast) 15%, transparent)); }\n:root .mp-tarjeta-pieza { border-top: 3px solid var(--wp--preset--color--contrast); padding-top: var(--wp--preset--spacing--20); }\n:root .is-style-tarjeta { border-top: 4px solid var(--wp--preset--color--primary); }\n:root .wp-block-quote { border-left: 4px solid var(--wp--preset--color--accent); padding-left: var(--wp--preset--spacing--30); }"
+	}
+}
