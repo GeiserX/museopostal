@@ -1,0 +1,10 @@
+# Nunca: copias completas con wp-config/base de datos, credenciales, cookies
+*.daf
+*.sql
+*.sql.gz
+installer.php
+*.env
+cj.txt
+node_modules/
+.DS_Store
+dist/
