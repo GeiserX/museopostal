@@ -63,6 +63,8 @@ for (const variacion of variaciones) {
 				const imagenes = [...document.images];
 				imagenes.forEach((img) => { img.loading = 'eager'; });
 				await Promise.all(imagenes.map((img) => (img.complete ? null : new Promise((listo) => { img.onload = img.onerror = listo; }))));
+				// Cargada no es pintada: con decoding="async" el runner puede capturar antes de decodificar.
+				await Promise.all(imagenes.map((img) => img.decode().catch(() => null)));
 			});
 			const rotas = await pagina.evaluate(() => [...document.images].filter((img) => !img.naturalWidth).map((img) => img.currentSrc || img.src));
 			if (rotas.length) fallos.push(`${variacion} ${nombre} ${ancho}px: imágenes sin cargar: ${rotas.join(', ')}`);
