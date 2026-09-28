@@ -35,14 +35,14 @@ Observado el 28-09-2026. Todas las URL se visitaron ese día salvo que se indiqu
 | Navegación, estructura y fichas | Chromium real (Playwright MCP, perfil propio) con ventana de 1280×900 y, en dos casos, 390×844 para móvil. Leí el árbol de accesibilidad (encabezados, enlaces, formularios) e hice capturas. |
 | Peso aproximado | `curl` del HTML con UA de Chrome: bytes transferidos comprimidos (`--compressed` en otra pasada) y bytes sin comprimir. Número de peticiones de la primera carga según el registro de red de Playwright, sin tocar el banner de cookies. **No hay bytes totales por página**: el registro no da tamaños, y medir cada recurso con `curl` no compensaba. Las cifras sirven para comparar, no para auditar. |
 | Tipografías de Google | Metadatos oficiales `https://fonts.google.com/metadata/fonts` (campo `subsets`) y `unicode-range` del subconjunto `latin` servido por `fonts.googleapis.com/css2`. |
-| Contrastes | Fórmula WCAG 2.x calculada en Python. Control positivo: negro sobre blanco da 21:1. El oro actual `#D4AF37` sobre la crema `#F4EAD5` da 1,76:1, el mismo valor que el informe 04. |
+| Contrastes | Fórmula WCAG 2.x calculada en Python. Control positivo: negro sobre blanco da 21:1. El oro actual `#D4AF37` sobre la crema `#F4EAD5` da 1,76:1, el mismo valor que el [informe 04](04-auditoria-ux-ui.md). |
 
 **Límites y bloqueos encontrados:**
 - `postalmuseum.si.edu` y `www.postalmuseum.org` devuelven **403** a `curl` y a WebFetch. `www.metmuseum.org` devuelve **429** a WebFetch. `web.archive.org` no estaba disponible (429 y bloqueo). Todo eso se leyó con el navegador real.
 - El menú de The Postal Museum va escondido tras una hamburguesa y el árbol de accesibilidad no lo expuso. Su arquitectura sale del pie y de las páginas internas.
 - `mufi.org.mx` (Museo de Filatelia de Oaxaca): `NET::ERR_CERT_DATE_INVALID`. No se saltó el aviso.
 - `museodepostales.es`: `DNS_PROBE_FINISHED_NXDOMAIN`, el dominio ya no existe.
-- Mi conexión sale por un proxy local, así que los tiempos absolutos no valen (ver informe 04, §0). No se dan tiempos.
+- Mi conexión sale por un proxy local, así que los tiempos absolutos no valen (informe 04, §0). No se dan tiempos.
 - Los tipos de letra exactos de cada web no se verificaron en su CSS. Se describen por familia: serif, sans, condensada.
 
 ---
@@ -177,7 +177,7 @@ URL: https://museopostalytelegrafico.es/ (la página de Correos `correos.es/…/
 
 **Lectura.**
 - Es el referente español más cercano por materia y el que más avisa de lo que no hay que hacer:
-  - IA plana y larga;
+  - arquitectura de la información plana y larga;
   - menús sin semántica;
   - enlaces de spam SEO en un museo público;
   - 14 errores en consola.
@@ -335,7 +335,7 @@ Relato del NPM: https://artsandculture.google.com/story/american-art-on-postage-
 - La colección se ordena **por periodos**: Paleolític i Neolític, Edat del bronze, Edat del ferro i estat ilerget, Roma, Antiguitat tardana, Al-Àndalus, Romànic, Gòtic, Renaixement i Barroc, Ingressos recents. Además hay «La col·lecció online».
 - En el pie se lee **«Twitter outputted an error: Invalid or expired token..»**.
 - Todas las tarjetas son H1. El diseño parece de hace una década.
-- Lección: ordenar las salas por periodo funciona. El widget roto es justo lo que no puede pasar.
+- Lección: ordenar las salas por periodo funciona. El widget roto es lo que no puede pasar.
 
 **Museo Salzillo** (Murcia) (https://www.museosalzillo.es/)
 - Menú: *La Visita, El Museo, Colección, Exposiciones, Actualidad, Aprende, Servicios, Archivo*. Utilidades: *Visita Virtual, Cita Previa, Contacto, Preguntas frecuentes, Newsletter, Amigos*.
@@ -379,8 +379,8 @@ Aplicado a museopostal.org:
 
 ## 4. Contexto para los patrones
 
-- **Modelo técnico:** el informe 05 recomienda un tema de bloques propio y un plugin con el tipo de contenido `pieza`, las salas y taxonomías con `show_in_rest`. Los patrones siguientes se piensan para ese modelo. Cada uno lleva su «cómo en WordPress».
-- **Campos de ficha:** el informe 01 (§2.1) define los campos de una ficha filatélica. Aquí solo se indica cómo presentarlos.
+- **Modelo técnico:** el [informe 05](05-opciones-tecnicas.md) recomienda un tema de bloques propio y un plugin con el tipo de contenido `pieza`, las salas y taxonomías con `show_in_rest`. Los patrones siguientes se piensan para ese modelo. Cada uno lleva su «cómo en WordPress».
+- **Campos de ficha:** el [informe 01](01-filatelia-dominio.md) (§2.1) define los campos de una ficha filatélica. Aquí solo se indica cómo presentarlos.
 - **Público:** sin sede física no existe el 50 % de visitas que buscan «planificar la visita» (informe 01, §4.3). Sobran los bloques de horario y entradas, y sobra el menú «Visita». Su hueco lo ocupan «Cómo usar el museo» y las videoconferencias.
 
 ---
@@ -452,7 +452,7 @@ Cada patrón indica qué es, de dónde sale, por qué sirve y cómo se hace en W
 13. **Colección por áreas y periodos.**
     - *Ref.:* NPM (15 áreas con «Explore» e intro por área), Museu de Lleida (periodos: Roma, Al-Àndalus, Gòtic…) y Musée Postal («Collections par thématique»).
     - *Por qué:* permite recorrer la colección sin saber qué buscar.
-    - *WP:* página «Colección» con dos rejillas. Por tipo: Sellos, Historia postal, Tarjetas postales, Pintura y arte postal, Documentos. Por época: Antes del sello (prefilatelia), 1850–1900, 1900–1939, Guerra y censura 1936–1945, 1945 a hoy. Las salas propuestas en el informe 01, §5.4 encajan aquí.
+    - *WP:* página «Colección» con dos rejillas. Por tipo: Sellos, Historia postal, Tarjetas postales, Pintura y arte postal, Documentos. Por época: Antes del sello (prefilatelia), 1850-1900, 1900-1939, Guerra y censura 1936-1945, 1945 a hoy. Las salas propuestas en el informe 01, §5.4 encajan aquí.
 
 14. **Buscador con ayuda y filtros en lenguaje llano.**
     - *Ref.:* NPM (desplegables «About Scott Catalogue Numbers», glosario y permisos, encima de la caja), Europeana («¿Puedo usar esto?») y Musée Postal («Pour effectuer une recherche, vous pouvez…»).
@@ -536,7 +536,7 @@ Cada patrón indica qué es, de dónde sale, por qué sirve y cómo se hace en W
 
 6. **Romper URL al migrar o renombrar.**
    - Musée Postal: las rutas antiguas de `collections.museedelaposte.fr` acaban en «ERREUR 404». Museo Salzillo: `/en/` y `/es/` dan 404.
-   - *Regla:* antes de publicar el rediseño, un mapa 301 de todas las URL actuales de museopostal.org (23 páginas y 2 entradas, informe 03) a las nuevas, comprobado con `curl`. Sin redirecciones de idioma automáticas.
+   - *Regla:* antes de publicar el rediseño, un mapa 301 de todas las URL actuales de museopostal.org (23 páginas y 2 entradas, [informe 03](03-auditoria-contenido.md)) a las nuevas, comprobado con `curl`. Sin redirecciones de idioma automáticas.
 
 7. **Títulos genéricos y enlaces de imagen sin texto.**
    - Europeana: «Sello de Correos» repetido. Musée Postal: «Ajouts récents» con enlaces de imagen sin nombre accesible.
@@ -573,8 +573,8 @@ Contrastes calculados con la fórmula WCAG. El mínimo para texto normal es 4,5:
 
   | Uso | Color | Contraste |
   |---|---|---|
-  | Fondo papel | `#F4EAD5` | — |
-  | Fondo claro (fichas, bloques) | `#FBF6EC` | — |
+  | Fondo papel | `#F4EAD5` | fondo de referencia |
+  | Fondo claro (fichas, bloques) | `#FBF6EC` | fondo de referencia |
   | Texto | `#2B2320` | 12,89:1 sobre papel; 14,29:1 sobre claro |
   | Titulares y enlaces, tinta | `#1A2E44` | 11,58:1 |
   | Acento granate | `#8A1538` | 7,83:1 sobre papel; papel sobre granate 7,83:1 |
@@ -583,9 +583,9 @@ Contrastes calculados con la fórmula WCAG. El mínimo para texto normal es 4,5:
   | Oro, **solo filetes y ornamento, nunca texto** | `#B08D2E` | 2,63:1 |
 
 - **Tipos:**
-  - **Newsreader** (Google Fonts, serif con eje óptico 6–72) para titulares y cuerpo largo;
-  - **Public Sans** (sans neutra de origen institucional, pesos 100–900) para menú, fichas y botones;
-  - alternativa serif: **Source Serif 4** (eje óptico 8–60).
+  - **Newsreader** (Google Fonts, serif con eje óptico 6-72) para titulares y cuerpo largo;
+  - **Public Sans** (sans neutra de origen institucional, pesos 100-900) para menú, fichas y botones;
+  - alternativa serif: **Source Serif 4** (eje óptico 8-60).
 - **Imágenes:**
   - piezas sobre montura negra con el dentado entero, como en el NPM, y un margen generoso;
   - reverso junto al anverso;
@@ -609,7 +609,7 @@ Contrastes calculados con la fórmula WCAG. El mínimo para texto normal es 4,5:
 
   | Uso | Color | Contraste |
   |---|---|---|
-  | Fondo kraft | `#EDE3CF` | — |
+  | Fondo kraft | `#EDE3CF` | fondo de referencia |
   | Texto, negro tinta | `#1C1B19` | 13,51:1 |
   | Acento lacre | `#A4262C` | 5,70:1 sobre kraft; blanco sobre lacre 7,26:1 |
   | Azul matasellos | `#24466B` | 7,62:1; blanco sobre azul 9,71:1 |
@@ -617,7 +617,7 @@ Contrastes calculados con la fórmula WCAG. El mínimo para texto normal es 4,5:
   | Mostaza buzón, **solo como fondo con texto negro o sobre negro** | `#E3B23C` | 8,77:1 con negro; **1,54:1 sobre kraft: prohibido** |
 
 - **Tipos:**
-  - **Archivo** (eje de anchura 62–125 y peso 100–900) para titulares condensados y cuerpo en anchura normal;
+  - **Archivo** (eje de anchura 62-125 y peso 100-900) para titulares condensados y cuerpo en anchura normal;
   - **IBM Plex Mono** para metadatos (fechas, números Edifil, inventario), que imita el fechador;
   - alternativa para textos largos: **Source Serif 4**.
 - **Imágenes:**
@@ -638,13 +638,13 @@ Contrastes calculados con la fórmula WCAG. El mínimo para texto normal es 4,5:
 
 ### 7.3 «Sala blanca» (museo contemporáneo)
 
-- **Idea:** la web es una sala de exposición moderna, como el Rijksmuseum o el Met. Blanco, mucho aire, piezas grandes sobre gris claro y un solo acento granate. La pieza lo es todo.
+- **Idea:** la web es una sala de exposición moderna, como el Rijksmuseum o el Met. Blanco, mucho aire, piezas grandes sobre gris claro y un solo acento granate.
 - **Paleta:**
 
   | Uso | Color | Contraste |
   |---|---|---|
-  | Fondo | `#FFFFFF` | — |
-  | Fondo alterno | `#F7F6F3` | — |
+  | Fondo | `#FFFFFF` | fondo de referencia |
+  | Fondo alterno | `#F7F6F3` | fondo de referencia |
   | Fondo de pieza (paspartú) | `#EDEBE6` | granate sobre él 7,85:1 |
   | Texto | `#1F1F1F` | 16,48:1; 15,25:1 sobre alterno |
   | Texto secundario | `#5E5E5E` | 6,48:1; 6,00:1 sobre alterno |
@@ -652,7 +652,7 @@ Contrastes calculados con la fórmula WCAG. El mínimo para texto normal es 4,5:
 
 - **Tipos:**
   - **Instrument Serif** (serif de display con regular y cursiva) solo para H1 y H2 grandes;
-  - **Atkinson Hyperlegible Next** (Braille Institute, pesos 200–800, diseñada para lectores con baja visión) para todo lo demás;
+  - **Atkinson Hyperlegible Next** (Braille Institute, pesos 200-800, diseñada para lectores con baja visión) para todo lo demás;
   - alternativa: **Inter**.
 - **Imágenes:**
   - pieza muy grande sobre paspartú gris claro;
@@ -677,7 +677,7 @@ Contrastes calculados con la fórmula WCAG. El mínimo para texto normal es 4,5:
 - la montura negra resuelve cómo presentar sellos de cualquier color;
 - con dos familias y un solo motivo gráfico se cumple el límite de tipografías del informe 04.
 
-De «Estafeta» se puede tomar solo la letra de máquina para números de inventario y catálogo (IBM Plex Mono, que ya tiene latin). Eso sube a tres familias, así que conviene decidirlo con una maqueta delante.
+De «Estafeta» se puede tomar solo la letra de máquina para números de inventario y catálogo (IBM Plex Mono, que ya tiene latin). Eso sube a tres familias, así que hay que decidirlo con una maqueta delante.
 
 ### 7.5 Tipografías de Google Fonts seguras para el castellano
 

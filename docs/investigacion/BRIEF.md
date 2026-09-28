@@ -2,34 +2,34 @@
 
 Museo Postal y Filatélico de la Región de Murcia. Documento de producto único para la siguiente fase (maquetas, tema, plugin, migración). Fecha: 28-09-2026.
 
-Fuentes: los cinco informes de investigación en `/tmp/felipe/research/` y sus ficheros hermanos. Las citas entre paréntesis remiten a ellos:
+Fuentes: los cinco informes de investigación y sus ficheros hermanos, escritos en `/tmp/felipe/research/` y hoy en esta misma carpeta. Las citas entre paréntesis remiten a ellos:
 
 | Cita | Fichero |
 |---|---|
-| 01 | `01-filatelia-dominio.md` (materia, ficha de pieza, contexto murciano, modelo de contenido) |
-| 02 | `02-referentes-web-museos.md` (referentes, 22 patrones, 10 antipatrones, 3 direcciones visuales) |
-| 03 | `03-auditoria-contenido.md` (mapa de contenido, página a página) |
-| 03b | `03b-contenido-extraido.md` (texto real ya limpio, semilla del nuevo sitio) |
-| 04 | `04-auditoria-ux-ui.md` (problemas P0/P1/P2 y 10 objetivos medibles T1-T10) |
-| 05 | `05-opciones-tecnicas.md` (opciones técnicas, despliegue, migración, plugins, staging, previsualización) |
+| 01 | [`01-filatelia-dominio.md`](01-filatelia-dominio.md) (materia, ficha de pieza, contexto murciano, modelo de contenido) |
+| 02 | [`02-referentes-web-museos.md`](02-referentes-web-museos.md) (referentes, 22 patrones, 10 antipatrones, 3 direcciones visuales) |
+| 03 | [`03-auditoria-contenido.md`](03-auditoria-contenido.md) (mapa de contenido, página a página) |
+| 03b | [`03b-contenido-extraido.md`](03b-contenido-extraido.md) (texto real ya limpio, semilla del nuevo sitio) |
+| 04 | [`04-auditoria-ux-ui.md`](04-auditoria-ux-ui.md) (problemas P0/P1/P2 y 10 objetivos medibles T1-T10) |
+| 05 | [`05-opciones-tecnicas.md`](05-opciones-tecnicas.md) (opciones técnicas, despliegue, migración, plugins, staging, previsualización) |
 | inv | `/tmp/felipe/inventory.md` (hosting, temas y 29 plugins; este fichero no existía cuando se escribieron 03, 04 y 05, que dedujeron los plugins del HTML y del export) |
 
-Regla de este documento: cuando dos informes se contradicen, se dice cuál gana y por qué (§11). Ningún dato personal del titular (DNI, domicilio, correo personal, móvil) se reproduce aquí; están en las páginas legales originales y deben salir del sitio (§7.4).
+Regla de este documento: cuando dos informes se contradicen, se dice cuál gana y por qué (§11). Ningún dato personal del titular (DNI, domicilio, correo personal, móvil) se reproduce aquí. Esos datos están en las páginas legales originales y deben salir del sitio (§7.4).
 
 ---
 
 ## 1. Resumen ejecutivo
 
-1. **Qué está mal hoy.** museopostal.org no funciona como museo: la portada no tiene H1, abre con 90 palabras en cursiva y 3 de sus 6 tarjetas no llevan a ninguna parte, entre ellas la sala de Murcia, que es la razón de ser del proyecto (04 P0-1). Las salas están vacías, rotas o tapadas: Museo_murcia son 3 imágenes sin texto, Museos del Mundo 8 fotos sin nombre, el Proyecto Aula queda oculto tras el aviso «Nuestra tienda está en obras» y Padre_museo muestra «Please select a Menu From Setting!» (04 P0-2; 03 §5). Seis páginas publicadas son huérfanas (03 §4).
+1. **Qué está mal hoy.** museopostal.org no funciona como museo. La portada no tiene H1, abre con 90 palabras en cursiva y 3 de sus 6 tarjetas no llevan a ninguna parte. Una de ellas es la sala de Murcia, la razón de ser del proyecto (04 P0-1). Las salas están vacías, rotas o tapadas: Museo_murcia son 3 imágenes sin texto, Museos del Mundo 8 fotos sin nombre, el Proyecto Aula queda oculto tras el aviso «Nuestra tienda está en obras» y Padre_museo muestra «Please select a Menu From Setting!» (04 P0-2; 03 §5). Seis páginas publicadas son huérfanas (03 §4).
 2. La imagen del museo son medallones generados por IA con matasellos inventados («MURCIA 14 DE 1870», «Hala Hamylon Murcia»), lo peor que puede enseñar un museo de filatelia, donde la autenticidad es el producto (04 P0-5).
-3. Técnicamente es una tienda grande sin tienda: 26 plugins activos de 29 (inv), 150 peticiones y 2,3 MB en móvil, LCP de 4,9 s, TTFB de 2 a 10 s con la microcaché siempre `EXPIRED`, 7 familias tipográficas, dos plugins de SEO, cuatro de analítica y tres de consentimiento; Clarity y Google Analytics envían datos antes de que el visitante acepte nada (04 §1, P0-4, P0-6).
+3. Técnicamente es una tienda grande sin tienda: 26 plugins activos de 29 (inv), 150 peticiones y 2,3 MB en móvil, LCP de 4,9 s, TTFB de 2 a 10 s con la microcaché siempre `EXPIRED`, 7 familias tipográficas, dos plugins de SEO, cuatro de analítica y tres de consentimiento. Clarity y Google Analytics envían datos antes de que el visitante acepte nada (04 §1, P0-4, P0-6).
 4. Los textos legales están copiados de otro comerciante (remiten a estudifilatelic.com y a Barcelona), publican el DNI del titular y la política de privacidad termina a mitad de frase (03 §5.21-5.22).
 5. **Lo que vale.** Unas 4.100 palabras de prosa real y buena (03 §Resumen): «El Correo Submarino», «El wi-fi del siglo XIX», la exposición de los eclipses, 5 fichas de pintura, la idea del Aula y la de «Comparte tu pieza», y unos 40 escaneos filatélicos auténticos sin publicar en la biblioteca de medios (03 §11). El nombre, el dominio, el concepto del logo granate y la paleta crema/granate/tinta también se quedan (04 §3).
-6. **Qué será el nuevo sitio.** Un museo virtual con la Región de Murcia como sala central y cuatro salas de contexto, cuya unidad es la **pieza** con ficha filatélica completa (Edifil, fecha, técnica, dentado, marcas, estado, procedencia, anverso y reverso ampliables), organizada por época, lugar, tipo y tema, con un Aula para colegios y una sección de investigación (artículos, videoteca, biblioteca) (01 §5; 02 §3 y §5).
+6. **Qué será el nuevo sitio.** Un museo virtual con la Región de Murcia como sala central y cuatro salas de contexto. Su unidad es la **pieza**, con ficha filatélica completa (Edifil, fecha, técnica, dentado, marcas, estado, procedencia, anverso y reverso ampliables) y organizada por época, lugar, tipo y tema. Tendrá un Aula para colegios y una sección de investigación con artículos, videoteca y biblioteca (01 §5; 02 §3 y §5).
 7. Portada-vestíbulo: nombre, misión en una frase, cinco puertas, la efeméride del día y una pieza al azar. Ningún carrusel, ninguna imagen generada, ningún tercero antes de que el visitante haga clic (02 patrones 1, 16, 17 y 22).
-8. **Cómo se entrega.** Un tema de bloques propio (`museopostal`) y un plugin compañero (`museopostal-coleccion`) que registra el modelo del museo, desarrollados en el repositorio público `GeiserX/museopostal` (GPL-3.0). GitHub Actions publica los zips en cada Release; la primera instalación se sube por wp-admin y las siguientes llegan como actualización normal de WordPress (05 §0, §3).
+8. **Cómo se entrega.** Un tema de bloques propio (`museopostal`) y un plugin compañero (`museopostal-coleccion`) que registra el modelo del museo, desarrollados en el repositorio público [`GeiserX/museopostal`](https://github.com/GeiserX/museopostal) (GPL-3.0). GitHub Actions publica los zips en cada Release. La primera instalación se sube por wp-admin y las siguientes llegan como actualización normal de WordPress (05 §0, §3).
 9. Cada PR lleva un botón de WordPress Playground para que Felipe vea el tema real con contenido de muestra desde el móvil. Las tres direcciones visuales se maquetan como variaciones de estilo del mismo tema, no como maquetas aparte (05 §7; §6 de este brief).
-10. La migración se ensaya en un clon (`pruebas.museopostal.org`) y se repite en producción con copia de Superbackup, WXR y Release fijada; volver a Neve es un clic mientras no se borren datos (05 §6). Elementor, sus tres packs de addons y unos 20 plugins más se retiran por tandas al final (05 §5).
+10. La migración se ensaya en un clon (`pruebas.museopostal.org`) y se repite en producción con copia de Superbackup, WXR y Release fijada. Volver a Neve es un clic mientras no se borren datos (05 §6). Elementor, sus tres packs de addons y unos 20 plugins más se retiran por tandas al final (05 §5).
 
 ---
 
@@ -37,7 +37,7 @@ Regla de este documento: cuando dos informes se contradicen, se dice cuál gana 
 
 ### 2.1 Quién visita un museo postal virtual
 
-Un museo sin sede física pierde el 50 % de visitas que buscan «planificar la visita»; su público es el de interés personal, el de investigación y el de navegación casual (01 §4.3, con datos del Indianapolis Museum of Art, MW2012). Los investigadores son los más implicados y los que más vuelven (33 %).
+Un museo sin sede física pierde el 50 % de visitas que buscan «planificar la visita». Su público es el de interés personal, el de investigación y el de navegación casual (01 §4.3, con datos del Indianapolis Museum of Art, MW2012). Los investigadores son los más implicados y los que más vuelven (33 %).
 
 | Audiencia | Qué viene a hacer | Qué necesita del sitio | Evidencia |
 |---|---|---|---|
@@ -87,14 +87,14 @@ Un museo sin sede física pierde el 50 % de visitas que buscan «planificar la v
 **Decisión: el sitio sigue siendo un museo virtual, no un blog ni un catálogo.** Tres razones:
 
 1. Hay colección, interpretación y programa escolar, que son las tres cosas que distinguen un museo de un blog (01 §5.4; 02 §3, tabla «señal de museo / señal de blog»). Las dos entradas actuales son buenas, pero son artículos de sala, no el eje del sitio.
-2. El hueco es real: el Museo Postal y Telegráfico de Correos cerró Aravaca a finales de 2023 y en mayo de 2026 Toledo seguía sin fecha de apertura; Murcia no tiene federación filatélica propia (va dentro de la valenciana) y la RAHF aprobó sus estatutos en una asamblea celebrada en Murcia en 1954 (01 §3.2-3.5). Ningún otro museo cubre «filatelia e historia postal desde y para la Región de Murcia».
+2. El hueco es real: el Museo Postal y Telegráfico de Correos cerró Aravaca a finales de 2023 y en mayo de 2026 Toledo seguía sin fecha de apertura. Murcia no tiene federación filatélica propia (va dentro de la valenciana) y la RAHF aprobó sus estatutos en una asamblea celebrada en Murcia en 1954 (01 §3.2-3.5). Ningún otro museo cubre «filatelia e historia postal desde y para la Región de Murcia».
 3. El marco de museo obliga a lo que hoy falta: fichas normalizadas, salas con texto, créditos, licencias y una cita. Es la disciplina que el sitio necesita.
 
 **Lo que se afila:** la Región de Murcia pasa a ser la **sala central** y las demás son salas de contexto (alternativa que ya propone 01 §5.4 y que aquí se adopta). El texto de bienvenida actual ya lo dice («vocación de proyectar e interpretar la filatelia y la historia postal desde y para la Región de Murcia», 03b §1). El nombre y el dominio no cambian (04 §3 punto 1).
 
 Marcos descartados:
 - **Blog de filatelia con secciones:** es lo que hay hoy y no distingue pieza de entrada (02 §3).
-- **Solo catálogo/colección en línea sin salas:** con unas 140 piezas, sin relato el visitante casual no sabe por dónde entrar; los referentes pequeños que funcionan ordenan por salas o periodos (02 patrones 13 y 18; Museu de Lleida).
+- **Solo catálogo/colección en línea sin salas:** con unas 140 piezas, sin relato el visitante casual no sabe por dónde entrar. Los referentes pequeños que funcionan ordenan por salas o periodos (02 patrones 13 y 18; Museu de Lleida).
 - **«Museo Postal de la Región de Murcia» de alcance solo regional:** los eclipses, las pinturas y el correo submarino no son murcianos y son lo mejor del sitio. Murcia es la sala central, no el límite.
 
 ### 3.2 Nombre, lema y voz
@@ -397,8 +397,8 @@ Las tres se implementan como **variaciones de estilo del mismo tema** (`styles/a
 
   | Uso | Hex | Contraste |
   |---|---|---|
-  | Fondo papel | `#F4EAD5` | — |
-  | Fondo claro (fichas, bloques) | `#FBF6EC` | — |
+  | Fondo papel | `#F4EAD5` | fondo de referencia |
+  | Fondo claro (fichas, bloques) | `#FBF6EC` | fondo de referencia |
   | Texto | `#2B2320` | 12,89:1 sobre papel |
   | Titulares y enlaces (tinta) | `#1A2E44` | 11,58:1 |
   | Acento granate | `#8A1538` | 7,83:1; papel sobre granate 7,83:1 |
@@ -408,7 +408,7 @@ Las tres se implementan como **variaciones de estilo del mismo tema** (`styles/a
 
 - **Tipografías:** **Newsreader** (serif con eje óptico 6-72) para titulares y cuerpo largo; **Public Sans** (sans institucional, 100-900) para menú, fichas y botones. Alternativa serif: Source Serif 4. Ambas con subconjunto `latin` (cubre á é í ó ú ü ñ ¿ ¡ « » €), autoalojadas en woff2 variable: 4-5 ficheros frente a los 46 actuales (02 §7.5).
 - **Imagen:** piezas sobre montura negra con margen generoso, como el NPM; reverso junto al anverso; filete dentado como único ornamento; ni textura de papel ni medallones.
-- **Mood:** sereno, cálido, de coleccionista.
+- **Tono:** sereno, cálido, de coleccionista.
 - **A favor:** continuidad para Felipe y para quien ya conoce el sitio; la montura negra hace brillar sellos de cualquier color; dos familias; contrastes holgados.
 - **En contra:** riesgo de «antiguo» si se abusa del ornamento; el crema ensucia fotos de sobres blancos (usar montura negra o gris `#EDEBE6` en las fichas); menos juvenil para el Aula.
 
@@ -419,7 +419,7 @@ Las tres se implementan como **variaciones de estilo del mismo tema** (`styles/a
 
   | Uso | Hex | Contraste |
   |---|---|---|
-  | Fondo kraft | `#EDE3CF` | — |
+  | Fondo kraft | `#EDE3CF` | fondo de referencia |
   | Texto (negro tinta) | `#1C1B19` | 13,51:1 |
   | Acento lacre | `#A4262C` | 5,70:1; blanco sobre lacre 7,26:1 |
   | Azul matasellos | `#24466B` | 7,62:1; blanco sobre azul 9,71:1 |
@@ -428,7 +428,7 @@ Las tres se implementan como **variaciones de estilo del mismo tema** (`styles/a
 
 - **Tipografías:** **Archivo** (eje de anchura 62-125 y peso 100-900) para titulares condensados y cuerpo; **IBM Plex Mono** para metadatos (fechas, Edifil, inventario), que imita el fechador. Con serif para lectura larga serían tres familias: habría que elegir.
 - **Imagen:** piezas a tamaño real sobre kraft con sombra mínima en rejilla de clasificador; fechador circular en SVG con la fecha de cada pieza; fotos de archivo en duotono azul.
-- **Mood:** didáctico, activo, de taller. Encaja con el Aula y «Comparte tu pieza».
+- **Tono:** didáctico, activo, de taller. Encaja con el Aula y «Comparte tu pieza».
 - **A favor:** identidad muy reconocible; la letra de máquina ordena los datos; atrae al público escolar.
 - **En contra:** la tematización puede parecer disfraz; el amarillo recuerda a la marca Correos (hay que evitar su amarillo corporativo y la corneta); el kraft baja el contraste de fotos claras; tres familias si se añade serif.
 
@@ -439,8 +439,8 @@ Las tres se implementan como **variaciones de estilo del mismo tema** (`styles/a
 
   | Uso | Hex | Contraste |
   |---|---|---|
-  | Fondo | `#FFFFFF` | — |
-  | Fondo alterno | `#F7F6F3` | — |
+  | Fondo | `#FFFFFF` | fondo de referencia |
+  | Fondo alterno | `#F7F6F3` | fondo de referencia |
   | Paspartú de pieza | `#EDEBE6` | granate sobre él 7,85:1 |
   | Texto | `#1F1F1F` | 16,48:1 |
   | Texto secundario | `#5E5E5E` | 6,48:1 |
@@ -448,13 +448,19 @@ Las tres se implementan como **variaciones de estilo del mismo tema** (`styles/a
 
 - **Tipografías:** **Instrument Serif** (display, solo H1 y H2) y **Atkinson Hyperlegible Next** (diseñada para baja visión, 200-800) para todo lo demás. Alternativa: Inter.
 - **Imagen:** pieza muy grande sobre paspartú gris; cabeceras de sala con detalle macro a sangre; ningún adorno.
-- **Mood:** sobrio, moderno, «museo de verdad».
+- **Tono:** sobrio, moderno, «museo de verdad».
 - **A favor:** la más fácil de mantener coherente; envejece bien; Atkinson ayuda en el Aula y a mayores.
 - **En contra:** exige escaneos limpios y calibrados porque no hay dónde esconder un mal recorte; puede resultar fría o genérica; pierde la identidad cálida que Felipe ya eligió; Instrument Serif solo tiene un peso.
 
 ### 6.3 Recomendación: «Álbum»
 
-Tres razones (02 §7.4): conserva la paleta que ya funciona (granate sobre crema 7,83:1) y que Felipe eligió; la montura negra resuelve cómo presentar sellos de cualquier color, que es el problema central de un museo filatélico; con dos familias y un solo motivo gráfico cumple T6 sin discusión. «Sala blanca» es la reserva si los escaneos resultan uniformes y Felipe prefiere un aire más institucional; «Estafeta» aporta una idea que se puede tomar prestada en Álbum sin cambiar de dirección: el fechador SVG con la fecha de la pieza como marca de ficha, si la maqueta demuestra que no sobrecarga.
+Tres razones (02 §7.4):
+
+1. Conserva la paleta que ya funciona (granate sobre crema 7,83:1) y que Felipe eligió.
+2. La montura negra resuelve cómo presentar sellos de cualquier color, que es el problema central de un museo filatélico.
+3. Con dos familias y un solo motivo gráfico cumple T6 sin discusión.
+
+«Sala blanca» es la reserva si los escaneos resultan uniformes y Felipe prefiere un aire más institucional. De «Estafeta», Álbum puede tomar una idea sin cambiar de dirección: el fechador SVG con la fecha de la pieza como marca de ficha, si la maqueta demuestra que no sobrecarga.
 
 ### 6.4 Logo y favicon
 
@@ -582,7 +588,7 @@ LICENSE
 - Todo en `runs-on: ubuntu-latest` (repo público, gratis).
 - **Release:** en cada tag `v*`, lint PHP, comprobación de que la versión del tag coincide con la de `style.css` y del plugin, zips `museopostal.zip` y `museopostal-coleccion.zip` con carpeta raíz fija (nunca el «Source code (zip)» de GitHub, cuya raíz `museopostal-v1.0.0/` rompe la sustitución), y `gh release create` con los zips (05 §3.2). La comprobación de versión se prueba en rojo una vez con un tag deliberadamente mal versionado: un check que no puede fallar no es un check.
 - **Primera instalación:** Apariencia › Temas › Subir tema y Plugins › Subir plugin desde wp-admin (límite 128 MB; el tema pesará < 2 MB). Felipe puede hacerlo desde España sin túnel (05 §3.1).
-- **Actualizaciones:** `plugin-update-checker` v5 en tema y plugin, con `enableReleaseAssets`; la actualización aparece en Escritorio › Actualizaciones y Felipe pulsa «Actualizar» (05 §3.3). Riesgo: quien controle la cuenta de GitHub controla el código del sitio; 2FA y tags protegidos obligatorios.
+- **Actualizaciones:** `plugin-update-checker` v5 en tema y plugin, con `enableReleaseAssets`; la actualización aparece en Escritorio › Actualizaciones y Felipe pulsa «Actualizar» (05 §3.3). Riesgo: quien controle la cuenta de GitHub controla el código del sitio, así que 2FA y tags protegidos son obligatorios.
 - **Acceso de Felipe al repositorio:** se le da **acceso de administrador** (usuario GitHub `felipemarsor-spain`) para que vea en directo todo lo que se hace y pueda hacer lo mismo. Como el repo es público, no contiene credenciales, exportaciones completas ni capturas de wp-admin (05 §7).
 - **Previsualización en PR:** cada PR lleva el botón de Playground con el tema y el plugin de esa rama y `muestra.xml`; un job opcional arranca Playground en el runner y publica capturas a 1440 y 500 px. **No se hacen maquetas aparte:** los patrones y las variaciones de estilo son la maqueta (05 §7).
 
