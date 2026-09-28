@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Busca datos personales en el código y en la muestra: DNI o NIE, correos de
-# proveedores personales, enlaces wa.me y móviles españoles. El repositorio es
-# público: nada de eso puede entrar. Uso: privacidad.sh [rutas…]
+# Busca datos personales en el código, la muestra, el archivo y los documentos:
+# DNI o NIE, correos de proveedores personales, enlaces wa.me y móviles
+# españoles. El repositorio es público: nada de eso puede entrar. Uso: privacidad.sh [rutas…]
 set -euo pipefail
 raiz="$(cd "$(dirname "$0")/../.." && pwd)"
 if [ "$#" -eq 0 ]; then
-	set -- "$raiz/theme" "$raiz/plugin" "$raiz/playground"
+	set -- "$raiz/theme" "$raiz/plugin" "$raiz/playground" "$raiz/archive" "$raiz/docs"
 fi
 
 patron='\b[0-9]{8}-?[A-HJ-NP-TV-Za-hj-np-tv-z]\b|\b[XYZxyz][0-9]{7}[A-Za-z]\b|[A-Za-z0-9._%+-]+@(gmail|googlemail|hotmail|outlook|yahoo|icloud|live|msn)\.[a-z]+|wa\.me/|\+34[ -]?[6-9][0-9]{2}|\b[67][0-9]{2}([ .-]?[0-9]{3}[ .-]?[0-9]{3}|[ .-]?[0-9]{2}[ .-]?[0-9]{2}[ .-]?[0-9]{2})\b'

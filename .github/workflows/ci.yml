@@ -107,7 +107,7 @@ jobs:
             exit 1
           fi
           echo "OK: la comprobación de versión rechaza v0.0.0"
-      - name: Sin datos personales en el tema, el plugin y la muestra
+      - name: Sin datos personales en el tema, el plugin, la muestra, el archivo y los documentos
         run: bash .github/scripts/privacidad.sh
       - name: Control negativo (un DNI tiene que saltar)
         run: |

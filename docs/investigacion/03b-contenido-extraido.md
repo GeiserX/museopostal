@@ -517,7 +517,7 @@ El cumplimiento de la normativa sobre protección de datos personales es una pri
 
 Responsable: FELIPE MARTINEZ SORIANO
 
-Domicilio: Calle Telefonista Encarna Ayala, 30570, Murcia, España
+Domicilio: Calle [omitido], 30570, Murcia, España
 
 Sitio Web: MUSEOPOSTAL.ORG
 
