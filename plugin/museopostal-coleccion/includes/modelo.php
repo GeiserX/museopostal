@@ -187,6 +187,7 @@ function museopostal_coleccion_registrar_modelo(): void {
 				'add_new_item'       => __( 'Añadir pieza', 'museopostal-coleccion' ),
 				'edit_item'          => __( 'Editar pieza', 'museopostal-coleccion' ),
 				'all_items'          => __( 'Todas las piezas', 'museopostal-coleccion' ),
+				'archives'           => __( 'Colección', 'museopostal-coleccion' ),
 				'search_items'       => __( 'Buscar piezas', 'museopostal-coleccion' ),
 				'not_found'          => __( 'No hay piezas.', 'museopostal-coleccion' ),
 				'featured_image'     => __( 'Anverso', 'museopostal-coleccion' ),
@@ -285,7 +286,7 @@ function museopostal_coleccion_registrar_modelo(): void {
 				'type'              => $tipo,
 				'single'            => true,
 				'show_in_rest'      => true,
-				'sanitize_callback' => 'integer' === $tipo ? 'intval' : 'sanitize_text_field',
+				'sanitize_callback' => 'integer' === $tipo ? static fn( $valor ) => (int) $valor : static fn( $valor ) => sanitize_text_field( (string) $valor ),
 				'auth_callback'     => static fn() => current_user_can( 'manage_categories' ),
 			)
 		);
