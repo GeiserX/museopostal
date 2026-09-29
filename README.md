@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GeiserX/museopostal/main/docs/images/banner.svg" alt="museopostal" width="100%">
+</p>
+
 # Museo Postal y Filatélico de la Región de Murcia
 
 Rediseño de [museopostal.org](https://museopostal.org), el museo virtual de filatelia e historia postal fundado en Murcia por Felipe Martínez.
