@@ -1,0 +1,47 @@
+name: Release
+
+# Un tag vX.Y.Z publica los dos zips. Lanzado a mano (workflow_dispatch) hace
+# todo menos publicar: sirve para ver la comprobación de versión en rojo sin
+# dejar un tag malo en el repositorio.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      etiqueta:
+        description: 'Etiqueta que se comprobaría, p. ej. v0.1.0 (no se publica nada)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+          tools: none
+      - name: php -l
+        run: |
+          mapfile -t ficheros < <(git ls-files 'theme/*.php' 'plugin/*.php')
+          if [ "${#ficheros[@]}" -eq 0 ]; then echo "::error::No hay ficheros PHP"; exit 1; fi
+          for f in "${ficheros[@]}"; do php -l "$f" > /dev/null; done
+      - name: La etiqueta coincide con la versión del tema y del plugin
+        env:
+          ETIQUETA: ${{ github.event_name == 'push' && github.ref_name || inputs.etiqueta }}
+        run: bash .github/scripts/comprobar-version.sh "$ETIQUETA"
+      - name: Construir y comprobar los zips
+        run: |
+          bash .github/scripts/empaquetar.sh dist
+          bash .github/scripts/comprobar-zips.sh dist
+      - name: Publicar la Release
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/museopostal.zip dist/museopostal-coleccion.zip \
+            --title "$GITHUB_REF_NAME" --generate-notes --verify-tag

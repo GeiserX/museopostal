@@ -1,0 +1,1103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Muestra del Museo Postal para WordPress Playground. Solo contenido ya publicado en museopostal.org (archive/ y docs/investigacion/03b-contenido-extraido.md), sin datos personales. Las imágenes están en playground/muestra/ y las enlaza playground/muestra.php. -->
+<rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
+<channel>
+	<title><![CDATA[Museo Postal y Filatélico de la Región de Murcia]]></title>
+	<link>https://museopostal.org</link>
+	<description><![CDATA[Filatelia e historia postal desde la Región de Murcia]]></description>
+	<language>es-ES</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://museopostal.org</wp:base_site_url>
+	<wp:base_blog_url>https://museopostal.org</wp:base_blog_url>
+	<wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[admin]]></wp:author_login><wp:author_email><![CDATA[admin@example.org]]></wp:author_email><wp:author_display_name><![CDATA[Museo Postal]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+	<wp:category><wp:term_id>500</wp:term_id><wp:category_nicename><![CDATA[articulos]]></wp:category_nicename><wp:category_parent><![CDATA[]]></wp:category_parent><wp:cat_name><![CDATA[Artículos]]></wp:cat_name></wp:category>
+	<wp:category><wp:term_id>501</wp:term_id><wp:category_nicename><![CDATA[exposiciones]]></wp:category_nicename><wp:category_parent><![CDATA[]]></wp:category_parent><wp:cat_name><![CDATA[Exposiciones]]></wp:cat_name></wp:category>
+	<wp:term><wp:term_id>502</wp:term_id><wp:term_taxonomy><![CDATA[sala]]></wp:term_taxonomy><wp:term_slug><![CDATA[antes-del-sello]]></wp:term_slug><wp:term_parent><![CDATA[]]></wp:term_parent><wp:term_name><![CDATA[Antes del sello]]></wp:term_name></wp:term>
+	<wp:term><wp:term_id>503</wp:term_id><wp:term_taxonomy><![CDATA[sala]]></wp:term_taxonomy><wp:term_slug><![CDATA[region-de-murcia]]></wp:term_slug><wp:term_parent><![CDATA[]]></wp:term_parent><wp:term_name><![CDATA[La Región de Murcia]]></wp:term_name></wp:term>
+	<wp:term><wp:term_id>504</wp:term_id><wp:term_taxonomy><![CDATA[sala]]></wp:term_taxonomy><wp:term_slug><![CDATA[correo-en-guerra]]></wp:term_slug><wp:term_parent><![CDATA[]]></wp:term_parent><wp:term_name><![CDATA[Correo en guerra]]></wp:term_name></wp:term>
+	<wp:term><wp:term_id>505</wp:term_id><wp:term_taxonomy><![CDATA[sala]]></wp:term_taxonomy><wp:term_slug><![CDATA[el-correo-en-la-pintura]]></wp:term_slug><wp:term_parent><![CDATA[]]></wp:term_parent><wp:term_name><![CDATA[El correo en la pintura]]></wp:term_name></wp:term>
+	<wp:term><wp:term_id>506</wp:term_id><wp:term_taxonomy><![CDATA[sala]]></wp:term_taxonomy><wp:term_slug><![CDATA[sellos-que-cuentan-el-mundo]]></wp:term_slug><wp:term_parent><![CDATA[]]></wp:term_parent><wp:term_name><![CDATA[Sellos que cuentan el mundo]]></wp:term_name></wp:term>
+	<wp:term><wp:term_id>507</wp:term_id><wp:term_taxonomy><![CDATA[lugar]]></wp:term_taxonomy><wp:term_slug><![CDATA[francia]]></wp:term_slug><wp:term_parent><![CDATA[mundo]]></wp:term_parent><wp:term_name><![CDATA[Francia]]></wp:term_name></wp:term>
+	<wp:term><wp:term_id>508</wp:term_id><wp:term_taxonomy><![CDATA[lugar]]></wp:term_taxonomy><wp:term_slug><![CDATA[paises-bajos]]></wp:term_slug><wp:term_parent><![CDATA[mundo]]></wp:term_parent><wp:term_name><![CDATA[Países Bajos]]></wp:term_name></wp:term>
+	<wp:term><wp:term_id>509</wp:term_id><wp:term_taxonomy><![CDATA[lugar]]></wp:term_taxonomy><wp:term_slug><![CDATA[italia]]></wp:term_slug><wp:term_parent><![CDATA[mundo]]></wp:term_parent><wp:term_name><![CDATA[Italia]]></wp:term_name></wp:term>
+	<item>
+		<title><![CDATA[Carta de Águilas a Murcia, 18 de junio de 1866]]></title>
+		<link>https://museopostal.org/?p=1001</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=1001</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">Qué nos cuenta</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Carta circulada de Águilas a Murcia el 18 de junio de 1866 y dirigida a la Sociedad Minera La Generala. Lleva dos sellos de Isabel II, de 4 cuartos azul y de 20 céntimos de escudo lila, matasellados con el fechador de Águilas, que se repite en el frente.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Carta franqueada con 4 cuartos azul y 20 céntimos de escudo lila, con el fechador de Águilas repetido en el frente.]]></excerpt:encoded>
+		<wp:post_id>1001</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[carta-de-aguilas-a-murcia-1866]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[pieza]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="sala" nicename="region-de-murcia"><![CDATA[La Región de Murcia]]></category>
+		<category domain="tipo" nicename="carta-sobre"><![CDATA[Carta o sobre]]></category>
+		<category domain="epoca" nicename="isabel-ii"><![CDATA[Isabel II]]></category>
+		<category domain="lugar" nicename="aguilas"><![CDATA[Águilas]]></category>
+		<category domain="lugar" nicename="murcia"><![CDATA[Murcia]]></category>
+		<category domain="tema" nicename="mineria"><![CDATA[Minería]]></category>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_inventario]]></wp:meta_key>
+			<wp:meta_value><![CDATA[MPF-2026-001]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_fecha]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1866-06-18]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_procedencia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[coleccion-museo]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_derechos]]></wp:meta_key>
+			<wp:meta_value><![CDATA[reservados]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estado]]></wp:meta_key>
+			<wp:meta_value><![CDATA[pieza-completa]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_pais]]></wp:meta_key>
+			<wp:meta_value><![CDATA[España]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_catalogo]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Edifil 81 · Edifil 85]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_valor_facial]]></wp:meta_key>
+			<wp:meta_value><![CDATA[4 cuartos + 20 céntimos de escudo]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_color]]></wp:meta_key>
+			<wp:meta_value><![CDATA[azul y lila]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_origen]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Águilas (Murcia)]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_destino]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Murcia, Sociedad Minera La Generala]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_franqueo]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Edifil 81 + 85]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_marcas]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Fechador ÁGUILAS 18 JUN 66, negro, frente (repetido)
+Anotación manuscrita «Lª 18 Junio 66», frente]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_relacion_murcia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Circuló de Águilas a Murcia y va dirigida a una sociedad minera murciana.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_orden_sala]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[0,54 € 125 aniversario de la botadura del submarino Peral, sobre de primer día, España, 2014]]></title>
+		<link>https://museopostal.org/?p=1002</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=1002</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">Qué nos cuenta</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Sello aniversario de la botadura del submarino de Isaac Peral, en su sobre de primer día matasellado en Madrid el 18 de febrero de 2014.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>El número Edifil está pendiente de confirmar: la antigua ficha de la tienda indicaba 5317.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Sobre de primer día del sello de Efemérides por el 125 aniversario de la botadura del submarino de Isaac Peral.]]></excerpt:encoded>
+		<wp:post_id>1002</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[spd-submarino-peral-2014]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[pieza]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="sala" nicename="region-de-murcia"><![CDATA[La Región de Murcia]]></category>
+		<category domain="tipo" nicename="spd"><![CDATA[Sobre de primer día (SPD)]]></category>
+		<category domain="epoca" nicename="euro"><![CDATA[Euro]]></category>
+		<category domain="lugar" nicename="cartagena"><![CDATA[Cartagena]]></category>
+		<category domain="tema" nicename="submarinos-y-marina"><![CDATA[Submarinos y marina]]></category>
+		<category domain="tema" nicename="personajes"><![CDATA[Personajes]]></category>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_inventario]]></wp:meta_key>
+			<wp:meta_value><![CDATA[MPF-2026-002]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_fecha]]></wp:meta_key>
+			<wp:meta_value><![CDATA[2014-02-18]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_procedencia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[coleccion-museo]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_derechos]]></wp:meta_key>
+			<wp:meta_value><![CDATA[reservados]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estado]]></wp:meta_key>
+			<wp:meta_value><![CDATA[pieza-completa]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_pais]]></wp:meta_key>
+			<wp:meta_value><![CDATA[España, Correos]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_serie]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Efemérides]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_catalogo]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Edifil 4870]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_valor_facial]]></wp:meta_key>
+			<wp:meta_value><![CDATA[0,54 €]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_formato]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Sobre de primer día]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_imprenta]]></wp:meta_key>
+			<wp:meta_value><![CDATA[FNMT-RCM]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_marcas]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Matasellos de primer día «125 aniversario 1888-2013 botadura del submarino Peral», Madrid, 18 de febrero de 2014, negro, frente]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_relacion_murcia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Isaac Peral nació en Cartagena en 1851.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_orden_sala]]></wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[4 € Eclipse solar total, España 12 de agosto de 2026, hoja bloque, España, 2026]]></title>
+		<link>https://museopostal.org/?p=1003</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=1003</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">Qué nos cuenta</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Imagina poder mirar hacia arriba y ver cómo, en pleno día, el Sol desaparece durante unos segundos. Eso es exactamente lo que va a pasar en España, y no una, sino tres veces en menos de tres años: dos eclipses solares totales, el 12 de agosto de 2026 y el 2 de agosto de 2027, y uno anular, el 26 de enero de 2028. Por eso Correos ha querido dejar constancia de este momento con un sello dedicado a lo que ya se conoce como el Trío de Eclipses.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>El sello recoge todo esto en su diseño: la imagen de un eclipse total en plena fase de totalidad, acompañada del logotipo oficial creado para representar este trío de fenómenos, y un mapa de la península ibérica con la franja exacta por la que pasará la sombra de la Luna el 12 de agosto de 2026. Un pequeño trocito de papel que guarda la memoria de algo que muy pocas generaciones llegan a vivir.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[El cielo, la tierra y las oficinas de Correos se preparan para un espectáculo que no se repite todos los días.]]></excerpt:encoded>
+		<wp:post_id>1003</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[hoja-bloque-eclipse-solar-2026]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[pieza]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="sala" nicename="sellos-que-cuentan-el-mundo"><![CDATA[Sellos que cuentan el mundo]]></category>
+		<category domain="tipo" nicename="hoja-bloque"><![CDATA[Hoja bloque]]></category>
+		<category domain="epoca" nicename="euro"><![CDATA[Euro]]></category>
+		<category domain="lugar" nicename="espana"><![CDATA[España]]></category>
+		<category domain="tema" nicename="astronomia-y-eclipses"><![CDATA[Astronomía y eclipses]]></category>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_inventario]]></wp:meta_key>
+			<wp:meta_value><![CDATA[MPF-2026-003]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_fecha]]></wp:meta_key>
+			<wp:meta_value><![CDATA[2026-07-23]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_procedencia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[coleccion-museo]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_derechos]]></wp:meta_key>
+			<wp:meta_value><![CDATA[reservados]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estado]]></wp:meta_key>
+			<wp:meta_value><![CDATA[nuevo-sin-fijasellos]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_pais]]></wp:meta_key>
+			<wp:meta_value><![CDATA[España, Correos]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_serie]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Ciencia]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_valor_facial]]></wp:meta_key>
+			<wp:meta_value><![CDATA[4 €]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_formato]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Hoja bloque de 1 sello de 33 × 53 mm]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_dimensiones]]></wp:meta_key>
+			<wp:meta_value><![CDATA[79,2 × 105,6 mm]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_tecnica]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Offset]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_papel]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Estucado, engomado, fosforescente]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_tirada]]></wp:meta_key>
+			<wp:meta_value><![CDATA[65.000]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_orden_sala]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[San Jerónimo leyendo una carta]]></title>
+		<link>https://museopostal.org/?p=1004</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=1004</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">Qué nos cuenta</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Georges de la Tour, uno de los grandes maestros del tenebrismo francés, dirige aquí toda la fuerza dramática de su luz hacia un motivo sorprendentemente cotidiano: un santo, San Jerónimo, leyendo una misiva con una concentración casi mística.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>El recurso es tan sencillo como efectivo: un haz de luz dirigido exclusivamente sobre el papel escrito, dejando el resto de la composición en penumbra. De esta manera, De la Tour combina la tradición de la pintura religiosa de santos con un objeto absolutamente terrenal, la carta, elevándolo, por la fuerza de la luz, a la categoría de revelación.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Más allá de su lectura espiritual, esta obra confirma que, ya en el primer tercio del siglo XVII, el acto de leer una carta se había convertido en un motivo pictórico lo bastante potente como para protagonizar incluso escenas de tema sacro, mucho antes de que los pintores de género holandeses lo convirtieran en su sello distintivo.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Cuando lo espiritual se cruza con lo epistolar. Un motivo que trasciende lo religioso.]]></excerpt:encoded>
+		<wp:post_id>1004</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[san-jeronimo-leyendo-una-carta]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[pieza]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="sala" nicename="el-correo-en-la-pintura"><![CDATA[El correo en la pintura]]></category>
+		<category domain="tipo" nicename="pintura"><![CDATA[Pintura]]></category>
+		<category domain="epoca" nicename="correo-de-postas"><![CDATA[Correo de postas]]></category>
+		<category domain="lugar" nicename="francia"><![CDATA[Francia]]></category>
+		<category domain="tema" nicename="pintura-y-arte"><![CDATA[Pintura y arte]]></category>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_inventario]]></wp:meta_key>
+			<wp:meta_value><![CDATA[MPF-2026-004]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_fecha]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1627]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_procedencia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[imagen-terceros]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_credito]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Museo del Prado]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_derechos]]></wp:meta_key>
+			<wp:meta_value><![CDATA[reservados]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estado]]></wp:meta_key>
+			<wp:meta_value><![CDATA[no-aplica]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_autor]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Georges de la Tour (1593-1652)]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estilo]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Barroco francés (tenebrismo)]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_institucion]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Museo del Prado]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_bibliografia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Datación: 1627-1629.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_orden_sala]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[La carta de amor (The Love Letter)]]></title>
+		<link>https://museopostal.org/?p=1005</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=1005</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">Qué nos cuenta</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Más de un siglo después del Siglo de Oro de Vermeer, el motivo de la carta de amor seguía siendo terreno fértil para la pintura neerlandesa, aunque bajo un lenguaje estético completamente distinto: el equilibrio, la contención formal y la claridad compositiva del Neoclasicismo.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Willem Bartel van der Kooi centra la composición en el gesto íntimo de la lectura amorosa, pero despojado de los claroscuros y los ambientes domésticos abigarrados del Barroco. El resultado es una imagen más serena, casi idealizada, en la que el sentimiento romántico se expresa con la misma mesura que cualquier otro tema neoclásico.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>La obra capta un momento de gran carga dramática y sutil: un joven mensajero entrega una carta cerrada con un sello de lacre rojo a una mujer de la alta burguesía, vestida con la moda estilo Imperio de la época. Lo fascinante del cuadro es la expresión expectante y algo melancólica de ella, que duda por un instante antes de tomar la carta, suspendiendo el gesto en el aire mientras el chico observa discretamente su reacción.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Aceptar la carta o no: la primera decisión importante.]]></excerpt:encoded>
+		<wp:post_id>1005</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[la-carta-de-amor]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[pieza]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="sala" nicename="el-correo-en-la-pintura"><![CDATA[El correo en la pintura]]></category>
+		<category domain="tipo" nicename="pintura"><![CDATA[Pintura]]></category>
+		<category domain="epoca" nicename="correo-de-la-corona"><![CDATA[Correo de la Corona]]></category>
+		<category domain="lugar" nicename="paises-bajos"><![CDATA[Países Bajos]]></category>
+		<category domain="tema" nicename="pintura-y-arte"><![CDATA[Pintura y arte]]></category>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_inventario]]></wp:meta_key>
+			<wp:meta_value><![CDATA[MPF-2026-005]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_fecha]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1808]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_procedencia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[imagen-terceros]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_credito]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Rijksmuseum, Ámsterdam]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_derechos]]></wp:meta_key>
+			<wp:meta_value><![CDATA[reservados]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estado]]></wp:meta_key>
+			<wp:meta_value><![CDATA[no-aplica]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_autor]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Willem Bartel van der Kooi (1768-1836)]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_titulo_original]]></wp:meta_key>
+			<wp:meta_value><![CDATA[The Love Letter]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estilo]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Neoclasicismo]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_institucion]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Rijksmuseum, Ámsterdam]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_orden_sala]]></wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[Tarjeta de campaña de la zona de guerra a Villa Santa Maria, 29 de mayo de 1918]]></title>
+		<link>https://museopostal.org/?p=1006</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=1006</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">Qué nos cuenta</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Tarjeta postal en franquicia militar del Regio Esercito Italiano, con el lema «Cittadini e soldati siate un esercito solo». Lleva el fechador de Posta Militare del 29 de mayo de 1918 y la marca azul «Verificato per censura».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>En el reverso, el soldado escribe desde la zona de guerra: «Un gentile pensiero dalla fronte». Es la pieza de la primera actividad del Aula, «La tarjeta del soldado».</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Tarjeta en franquicia del Regio Esercito Italiano, con fechador de Posta Militare y marca de censura, mayo de 1918.]]></excerpt:encoded>
+		<wp:post_id>1006</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[tarjeta-del-soldado-1918]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[pieza]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="sala" nicename="correo-en-guerra"><![CDATA[Correo en guerra]]></category>
+		<category domain="tipo" nicename="tarjeta-de-campana"><![CDATA[Tarjeta de campaña]]></category>
+		<category domain="epoca" nicename="restauracion"><![CDATA[Restauración]]></category>
+		<category domain="lugar" nicename="italia"><![CDATA[Italia]]></category>
+		<category domain="tema" nicename="guerra-y-censura"><![CDATA[Guerra y censura]]></category>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_inventario]]></wp:meta_key>
+			<wp:meta_value><![CDATA[MPF-2026-006]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_fecha]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1918-05-29]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_procedencia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[coleccion-museo]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_derechos]]></wp:meta_key>
+			<wp:meta_value><![CDATA[reservados]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estado]]></wp:meta_key>
+			<wp:meta_value><![CDATA[pieza-completa]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_pais]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Italia, Regio Esercito]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_formato]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Tarjeta postal en franquicia]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_imprenta]]></wp:meta_key>
+			<wp:meta_value><![CDATA[E. Calzone, Roma]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_origen]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Zona de guerra (Posta Militare 121)]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_destino]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Villa Santa Maria (Italia)]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_ruta]]></wp:meta_key>
+			<wp:meta_value><![CDATA[militar]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_franqueo]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Franquicia militar]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_marcas]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Fechador POSTA MILITARE 121, 29-5-18, negro, frente
+Verificato per censura, azul, frente]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_censura]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Sí: Verificato per censura, 1918]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_transcripcion]]></wp:meta_key>
+			<wp:meta_value><![CDATA[«Zona di guerra, 28 maggio 1918. Un gentile pensiero dalla fronte.»]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_anotaciones]]></wp:meta_key>
+			<wp:meta_value><![CDATA[[{"n":1,"x":62,"y":30,"texto":"Fechador de Posta Militare 121, 29 de mayo de 1918"},{"n":2,"x":52,"y":49,"texto":"Marca azul «Verificato per censura»"},{"n":3,"x":42,"y":16,"texto":"Franquicia impresa: «Corrispondenza in franchigia»"}]]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_orden_sala]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[Marcas utilizadas por la Censura postal Nacional de 1936 a 1945, de Ernst L. Heller]]></title>
+		<link>https://museopostal.org/?p=1007</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=1007</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">Qué nos cuenta</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Catálogo de las marcas de la censura postal nacional entre 1936 y 1945. Las marcas se citan por su número Heller, por ejemplo «Heller RC8.1».</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Catálogo de Ernst L. Heller sobre las marcas de la censura postal nacional entre 1936 y 1945.]]></excerpt:encoded>
+		<wp:post_id>1007</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[marcas-censura-postal-nacional-heller]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[pieza]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="sala" nicename="correo-en-guerra"><![CDATA[Correo en guerra]]></category>
+		<category domain="tipo" nicename="publicacion"><![CDATA[Publicación]]></category>
+		<category domain="epoca" nicename="democracia"><![CDATA[Democracia]]></category>
+		<category domain="lugar" nicename="espana"><![CDATA[España]]></category>
+		<category domain="tema" nicename="guerra-y-censura"><![CDATA[Guerra y censura]]></category>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_inventario]]></wp:meta_key>
+			<wp:meta_value><![CDATA[MPF-2026-007]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_fecha]]></wp:meta_key>
+			<wp:meta_value><![CDATA[2000]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_procedencia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[coleccion-museo]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_derechos]]></wp:meta_key>
+			<wp:meta_value><![CDATA[reservados]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estado]]></wp:meta_key>
+			<wp:meta_value><![CDATA[no-aplica]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_formato]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Libro]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_autor]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Ernst L. Heller]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_bibliografia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Ernst L. Heller, Marcas utilizadas por la censura postal nacional de 1936 a 1945, 2000. ISBN 84-931717-0-0.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_orden_sala]]></wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[3 € 300 años de Correos en España, hoja bloque, España, 2016]]></title>
+		<link>https://museopostal.org/?p=1008</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=1008</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">Qué nos cuenta</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>No fue hasta noviembre de 1706 cuando Felipe V decidió recuperar el control del correo para la Corona, profesionalizándolo y convirtiéndolo en un servicio público y estratégico. En 1716 nació la Superintendencia General de Correos, regulando por primera vez las tarifas públicas.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Esta hoja bloque de 2016 recuerda esos 300 años con la primera centuria, de 1716 a 1816.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Hoja bloque de 2016 por los 300 años de Correos en España: la primera centuria, de 1716 a 1816.]]></excerpt:encoded>
+		<wp:post_id>1008</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[hoja-bloque-300-anos-correos-2016]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[pieza]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="sala" nicename="antes-del-sello"><![CDATA[Antes del sello]]></category>
+		<category domain="tipo" nicename="hoja-bloque"><![CDATA[Hoja bloque]]></category>
+		<category domain="epoca" nicename="euro"><![CDATA[Euro]]></category>
+		<category domain="lugar" nicename="espana"><![CDATA[España]]></category>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_inventario]]></wp:meta_key>
+			<wp:meta_value><![CDATA[MPF-2026-008]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_fecha]]></wp:meta_key>
+			<wp:meta_value><![CDATA[2016]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_procedencia]]></wp:meta_key>
+			<wp:meta_value><![CDATA[coleccion-museo]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_derechos]]></wp:meta_key>
+			<wp:meta_value><![CDATA[reservados]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_estado]]></wp:meta_key>
+			<wp:meta_value><![CDATA[nuevo-sin-fijasellos]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_pais]]></wp:meta_key>
+			<wp:meta_value><![CDATA[España, Correos]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_valor_facial]]></wp:meta_key>
+			<wp:meta_value><![CDATA[3 €]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_formato]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Hoja bloque]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_articulo_id]]></wp:meta_key>
+			<wp:meta_value><![CDATA[2001]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_orden_sala]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[El wi-fi del siglo XIX]]></title>
+		<link>https://museopostal.org/?p=2001</link>
+		<pubDate>Mon, 18 May 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=2001</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p><em>La fascinante historia de cómo nos comunicábamos antes de la llegada de los sellos.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Imagínate por un momento la siguiente escena: escribes una carta urgente a un amigo que vive a trescientos kilómetros, la entregas a un mensajero y, cuando llega a su destino semanas después, <strong>es tu amigo quien tiene que pagar la factura</strong>. Si no tiene dinero o se niega a pagar, ¡tu mensaje se queda en el aire!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Hoy estamos acostumbrados a la velocidad del Wi-Fi, la instantaneidad de WhatsApp y la comodidad de las tarifas planas. Pero hubo un tiempo en que enviar un simple mensaje requería caballos desbocados, intrigas palaciegas y verdaderas redes de infraestructura imperial.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Bienvenido a la era prefilatélica: la época antes de que el 1 de enero de 1850 el primer sello de correos llegase a España para revolucionar las comunicaciones para siempre.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Los pioneros: de la red de calzadas romanas al trayecto del Sureste</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Mucho antes de que existieran las estafetas modernas, el imperio romano ya sabía que mantener un territorio unido requería información rápida. En el año 27 a. C., el emperador Augusto creó el <em>cursus publicus</em>, una red de comunicaciones militar y estatal que utilizaba caballos, mensajeros a pie (cursores) y estaciones de descanso (mansiones) a lo largo de las calzadas.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Hacia el año 290 d. C., el célebre Itinerario de Antonino marcaba una ruta postal costera que conectaba Alicante, Cartagena, Lorca y Águilas. Siglos más tarde, en época andalusí, la <strong>Ruta Murciana</strong> tomó el relevo, situando a Lorca como un auténtico nudo estratégico de comunicaciones con bifurcaciones hacia Granada y Almería.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">El «sello» que no pegaba: autenticidad en tiempos de Alfonso X</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cuando pensamos en un sello, nos viene a la mente un trozo de papel engomado con una ilustración bonita. Sin embargo, en el siglo XIII, en las Siete Partidas de Alfonso X el Sabio, la definición era completamente diferente:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><!-- wp:paragraph -->
+<p>«Sello es señal que el Rey u otro ome qualquier, manda fazer en metal, o en piedra, para firmar sus cartas con el»</p>
+<!-- /wp:paragraph --></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:paragraph -->
+<p>Aquel sello medieval no servía para pagar el envío, sino que actuaba como el precursor del certificado digital actual: una marca infalsificable grabada que garantizaba la identidad del emisor.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">La familia Taxis: los gigantes de la logística medieval</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>¿Te suenan los carruajes amarillos? Todo empezó con la familia Taxis (o Tassis), una dinastía de emprendedores que logró monopolizar el correo en las cortes europeas mediante un eficiente sistema de carreras de postas y relevos.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Llegaron a gestionar más de <strong>20.000 empleados, miles de caballos y carruajes amarillos y negros</strong>. En 1505, Felipe el Hermoso nombró a Francesco II de Tassis Maestro de Postas de los Países Bajos y Borgoña, extendiendo su red a Castilla. Un movimiento envuelto en cierta polémica, pues esquivaba la recomendación explícita de la reina Isabel la Católica de no otorgar altos cargos civiles a extranjeros.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"large","className":"is-style-montura"} -->
+<figure class="wp-block-image size-large is-style-montura"><img src="{{muestra}}/tassis.jpg" alt="Sello conmemorativo del Día del Sello de 1988, dedicado a los Tassis"/><figcaption class="wp-element-caption">Sello conmemorativo del Día del Sello, 1988.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Cuando pagar el correo antes de tiempo era de «mal gusto»</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Durante siglos, el transporte de cartas se pactaba de forma privada entre el remitente y el mensajero. No fue hasta noviembre de 1706 cuando Felipe V decidió recuperar el control del correo para la Corona, profesionalizándolo y convirtiéndolo en un servicio público y estratégico. En 1716 nació la <strong>Superintendencia General de Correos</strong>, regulando por primera vez las tarifas públicas.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Pero lo más curioso era la etiqueta social de la época: <strong>el porteo lo pagaba casi siempre el destinatario</strong>. Pagar la carta por adelantado se consideraba una falta de educación o un gesto de condescendencia, ya que insinuaba que la persona que la recibía no tenía solvencia económica para costearla.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Un reflejo de nuestra necesidad de conectar</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>El periodo prefilatélico terminó en España en 1850 con el nacimiento del sello engomado de pago previo. Sin embargo, el estudio de aquellos antiguos sobres, marcas de tinta, tarifas y rutas nos recuerda algo fundamental: aunque la tecnología cambie, del pergamino a la posta a caballo y del sello al Wi-Fi, <strong>la necesidad humana de transmitir información, historias y afecto a través de la distancia sigue siendo exactamente la misma.</strong></p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[La fascinante historia de cómo nos comunicábamos antes de la llegada de los sellos.]]></excerpt:encoded>
+		<wp:post_id>2001</wp:post_id>
+		<wp:post_date><![CDATA[2026-05-18 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-05-18 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-05-18 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-05-18 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[el-wi-fi-del-siglo-xix]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="articulos"><![CDATA[Artículos]]></category>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[mp_piezas]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1008]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[El Correo Submarino]]></title>
+		<link>https://museopostal.org/?p=2002</link>
+		<pubDate>Fri, 22 May 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=2002</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p><em>Guerra Civil, Correo Submarino y Cartagena</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>El 11 de mayo de 1938 se emite una Orden Ministerial que aparece publicada en la Gaceta de la República el 14 de mayo. Esa orden regula una emisión de sellos para sufragar un servicio postal singular hasta el día de hoy: establecer el servicio de correos mediante el transporte submarino.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>En plena Guerra Civil, surge la necesidad de mantener la comunicación postal con la isla de Menorca, que para este tiempo es la única isla balear fiel a la República. La Agencia Filatélica Oficial idea una forma de cubrir el pago de este servicio: en lugar de usar para el franqueo los sellos existentes, se utilizarán sellos emitidos exclusivamente para la correspondencia transportada de esta manera, con un objetivo que iba más allá de cubrir la tasa postal del servicio submarino. Sería un medio de obtener ingresos extras para comprar armamentos, munición y sobre todo alimentos y medicinas, sin olvidar el efecto propagandístico que tendría esta emisión de sellos para la República en un momento en que el coleccionismo de sellos estaba de moda.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Los sellos se vendieron a través de la Agencia Filatélica Oficial de Barcelona, pagándose con moneda extranjera, y se publicitó su singularidad para atraer a coleccionistas de sellos de todo el mundo. Fue un éxito económico inesperado: aunque su valor nominal era relativamente bajo, la demanda en el mercado filatélico internacional se disparó, y se llegaron a pagar importantes sumas en el extranjero por estas series.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Estaban destinados a franquear correspondencia que teóricamente habría de ser transportada en submarino entre Barcelona y Mahón (Menorca), prácticamente aislada por el bloqueo franquista.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Los sellos fueron impresos en Barcelona, adonde se había trasladado el Gobierno de la República, por la imprenta Oliva de Vilanova. Estos diseños corresponden a unos dibujos de Antonio Serra que fueron aceptados tras el rechazo de los diseños proyectados por la empresa Rieusset de Barcelona, donde aparecían las efigies de Isaac Peral y Narciso Monturiol.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Los diseños aceptados fueron convertidos en valores postales con facial de 1, 2, 4, 6, 10 y 15 pesetas, con diseños que representaban submarinos en superficie o en inmersión. También se lanzó una hoja bloque conmemorativa con tres de los sellos, cuya tirada fue de 12.500 ejemplares. En total, se colocaron en circulación hasta 75.000 sellos.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>La tirada y el sobrante de cada valor fue:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Valor</th><th>Submarino representado</th><th>Emitidos</th><th>Sobrantes</th></tr></thead><tbody><tr><td>1 peseta</td><td>D1</td><td>20.000</td><td>6.265</td></tr><tr><td>2 pesetas</td><td>A1</td><td>15.000</td><td>5.776</td></tr><tr><td>4 pesetas</td><td>B2</td><td>12.000</td><td>3.443</td></tr><tr><td>6 pesetas</td><td>A1</td><td>10.000</td><td>1.904</td></tr><tr><td>10 pesetas</td><td>B2</td><td>10.000</td><td>1.907</td></tr><tr><td>15 pesetas</td><td>D1</td><td>8.000</td><td>277</td></tr><tr><td>Hoja bloque, 3 valores (4, 6 y 15 pesetas)</td><td></td><td>12.500</td><td>1.673</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>A diferencia de lo que podría parecer, solo se realizó un viaje real de correo submarino entre Barcelona y Mahón. Lo hizo el submarino C-4, un sumergible de la Armada Republicana botado en 1929, que no era ninguno de los submarinos que aparecían en los sellos. Zarpó el 12 de agosto de 1938 de Barcelona y emprendió un arriesgado viaje hacia la isla, desafiando el bloqueo militar de los nacionales. Además de sacas de cartas, el submarino llevaba noticias del curso de la guerra, víveres de primera necesidad y sobre todo la esperanza de la resistencia.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>El 17 de agosto a las 22 horas salió de Mahón y entró en Barcelona a las 22.30 del día siguiente.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Los submarinos de los sellos</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Submarino D1</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Este submarino se encontraba en construcción en Cartagena. Se dio la orden de construcción en noviembre de 1932 y, por diversas razones, se realizó la entrega a la Armada en marzo de 1947. Estuvo en servicio hasta marzo de 1965.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Submarino A1</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Este submarino ya había causado baja al empezar la guerra. Fue comprado a Italia junto con otros dos submarinos, A2 y A3, siendo botado el 16 de abril de 1917 y entregado a España el 25 de agosto del mismo año. Se le conoce como el A1-Monturiol. Al finalizar su periodo útil viajó de la base de Mahón a la de Cartagena, donde causó baja en la Armada en enero de 1934.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Submarino B2</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Fue uno de los seis submarinos de la clase B que fueron construidos en Cartagena por la Sociedad Española de Construcciones Navales (en la actualidad Navantia) para la Armada española en 1917, siendo su botadura en 1922. Al finalizar la contienda, se hallaba semihundido en Cartagena.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Guerra Civil, correo submarino y Cartagena: la emisión de 1938 y el único viaje del C-4 entre Barcelona y Mahón.]]></excerpt:encoded>
+		<wp:post_id>2002</wp:post_id>
+		<wp:post_date><![CDATA[2026-05-22 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-05-22 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-05-22 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-05-22 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[el-correo-submarino]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="articulos"><![CDATA[Artículos]]></category>
+	</item>
+	<item>
+		<title><![CDATA[Inicio]]></title>
+		<link>https://museopostal.org/?p=3001</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=3001</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3001</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[inicio]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+	<item>
+		<title><![CDATA[Artículos]]></title>
+		<link>https://museopostal.org/?p=3002</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=3002</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3002</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[articulos]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+	<item>
+		<title><![CDATA[Salas]]></title>
+		<link>https://museopostal.org/?p=3003</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=3003</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:pattern {"slug":"museopostal/portada-puertas"} /-->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3003</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[salas]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+	<item>
+		<title><![CDATA[El museo]]></title>
+		<link>https://museopostal.org/?p=3004</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=3004</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Museo virtual de filatelia e historia postal, fundado en Murcia y, por ello, con vocación de proyectar e interpretar la filatelia y la historia postal desde y para la Región de Murcia.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><em>Página en preparación.</em> Aquí irán quiénes somos, la historia del proyecto y cómo se hizo esta web.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3004</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[el-museo]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+	<item>
+		<title><![CDATA[Aula]]></title>
+		<link>https://museopostal.org/?p=3005</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=3005</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p><em>Página en preparación.</em> La primera actividad para clase será «La tarjeta del soldado», a partir de esta pieza. Los números señalan lo que el alumnado aprenderá a leer en ella.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:museopostal/datos-pieza {"vista":"anotaciones","piezaId":1006} /-->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3005</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[aula]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+	<item>
+		<title><![CDATA[Contacto]]></title>
+		<link>https://museopostal.org/?p=3006</link>
+		<pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://museopostal.org/?p=3006</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p><em>Página en preparación.</em> Aquí irá el formulario de contacto del museo.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3006</wp:post_id>
+		<wp:post_date><![CDATA[2026-09-28 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-09-28 10:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-09-28 10:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[contacto]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+</channel>
+</rss>
