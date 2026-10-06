@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/images/banner.svg" alt="museopostal" width="100%">
+</p>
+
 # Museo Postal y Filatélico de la Región de Murcia
 
 Rediseño de [museopostal.org](https://museopostal.org), el museo virtual de filatelia e historia postal fundado en Murcia por Felipe Martínez.
@@ -6,6 +10,6 @@ El sitio sigue en WordPress (el director publica sus entradas y páginas desde e
 
 - `archive/2026-09-28-original/`: la versión original del sitio tal como estaba el 28 de septiembre de 2026, antes de tocar nada. Copia estática navegable (`sitio-estatico/index.html`), exportación de contenido de WordPress (`wordpress-export-contenido.xml`, sin correos personales), capturas de todas las secciones en escritorio y móvil, inventario de temas y plugins.
 - `docs/investigacion/`: estudio de filatelia, referentes de museos, auditoría del sitio actual, brief del rediseño y su crítica.
-- `theme/` y `plugin/`: el tema y el plugin nuevos para WordPress (llegan en pull requests con capturas para elegir diseño).
+- `theme/` y `plugin/`: el tema y el plugin nuevos para WordPress. El tema trae tres variaciones de estilo (Álbum, Estafeta y Sala blanca) y tres propuestas de logo hasta que Felipe elija una dirección.
 
-Licencia: GPL-3.0 (la misma que WordPress).
+Licencia: [GPL-3.0-or-later](LICENSE), compatible con la GPLv2+ de WordPress.
