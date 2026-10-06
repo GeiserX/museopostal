@@ -1,0 +1,161 @@
+name: Capturas
+
+# Arranca WordPress Playground en el runner con el tema, el plugin y la muestra,
+# y fotografía la portada, una sala y una ficha a 1440 y 500 px, para el tema
+# base y para cada variación de theme/museopostal/styles/ (cada una con su
+# logo). Genera además un blueprint de Playground por variación, fijado al
+# commit de la PR.
+#
+# Todo se sube como artefacto y, en PR de este repositorio, se publica en la
+# rama capturas/pr-<n> (una rama de publicación que se reescribe entera en
+# cada ejecución; nunca se toca la rama de la PR). La descripción de la PR
+# enlaza las imágenes y los blueprints de esa rama por raw.githubusercontent.com.
+# Ningún flujo escucha pushes a capturas/**: la CI solo escucha main y las PR.
+on:
+  pull_request:
+    paths:
+      - 'theme/**'
+      - 'plugin/**'
+      - 'playground/**'
+      - '.github/workflows/screenshots.yml'
+      - '.github/scripts/capturas.mjs'
+      - '.github/capturas/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: capturas-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  capturas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Instalar Playground CLI 3 y Playwright
+        run: |
+          npm install --no-save --no-package-lock @wp-playground/cli@3 playwright@1
+          npx playwright install --with-deps chromium
+      - name: Arrancar Playground con la muestra
+        run: |
+          log="$RUNNER_TEMP/playground.log"
+          nohup npx wp-playground-cli server \
+            --port=9400 --php=8.4 --wp=7.1 \
+            --mount="$PWD/theme/museopostal:/wordpress/wp-content/themes/museopostal" \
+            --mount="$PWD/plugin/museopostal-coleccion:/wordpress/wp-content/plugins/museopostal-coleccion" \
+            --mount="$PWD/.github/capturas/mu-plugins:/wordpress/wp-content/mu-plugins" \
+            --blueprint=playground/blueprint.json \
+            --blueprint-may-read-adjacent-files \
+            > "$log" 2>&1 &
+          pid=$!
+          # El servidor contesta antes de terminar el blueprint: hay que esperar a «Ready!».
+          for i in $(seq 1 300); do
+            if grep -q 'Ready!' "$log"; then break; fi
+            if ! kill -0 "$pid" 2>/dev/null; then
+              echo "::error::Playground se paró antes de terminar el blueprint"
+              cat "$log"
+              exit 1
+            fi
+            sleep 2
+          done
+          if ! grep -q 'Ready!' "$log"; then
+            echo "::error::Playground no terminó el blueprint en 10 minutos"
+            cat "$log"
+            exit 1
+          fi
+          codigo="$(curl -s -L -c "$RUNNER_TEMP/cookies" -b "$RUNNER_TEMP/cookies" -o "$RUNNER_TEMP/ficha.html" -w '%{http_code}' http://127.0.0.1:9400/pieza/carta-de-aguilas-a-murcia-1866/)"
+          if [ "$codigo" != 200 ] || ! grep -q 'mp-cabecera' "$RUNNER_TEMP/ficha.html"; then
+            echo "::error::La ficha de muestra respondió $codigo o no la pinta el tema museopostal"
+            cat "$log"
+            exit 1
+          fi
+          echo "Playground listo con la muestra tras $((i * 2)) s"
+      - name: Capturas y comprobaciones (200, un H1, imágenes, fuentes, logo, sin desborde)
+        id: capturas
+        # Aunque una comprobación falle, las capturas se suben y se publican
+        # para poder ver qué está mal; el job termina en rojo igualmente.
+        continue-on-error: true
+        run: node .github/scripts/capturas.mjs http://127.0.0.1:9400 "$RUNNER_TEMP/capturas"
+      - name: Blueprints de Playground por variación (fijados a este commit)
+        env:
+          REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/capturas/blueprints"
+          variaciones="base"
+          for f in theme/museopostal/styles/*.json; do
+            [ -e "$f" ] || continue
+            if node -e 'process.exit(require(require("path").resolve(process.argv[1])).blockTypes ? 1 : 0)' "$f"; then
+              variaciones="$variaciones $(basename "$f" .json)"
+            fi
+          done
+          for v in $variaciones; do
+            node playground/vista-previa.mjs "$REPO" "$SHA" "$v" > "$RUNNER_TEMP/capturas/blueprints/$v.json"
+          done
+          echo "Blueprints: $variaciones"
+      - name: Registro de Playground
+        if: always()
+        run: tail -n 80 "$RUNNER_TEMP/playground.log" || true
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: capturas-${{ github.event.pull_request.head.sha }}
+          path: ${{ runner.temp }}/capturas/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Publicar en la rama capturas/pr-${{ github.event.pull_request.number }}
+        if: always() && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NUMERO: ${{ github.event.pull_request.number }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+          ESTADO: ${{ steps.capturas.outcome }}
+        run: |
+          origen="$RUNNER_TEMP/capturas"
+          if [ ! -d "$origen" ] || [ -z "$(ls -A "$origen")" ]; then
+            echo "::warning::No hay capturas que publicar"
+            exit 0
+          fi
+          rama="capturas/pr-$NUMERO"
+          pub="$RUNNER_TEMP/publicacion"
+          rm -rf "$pub" && mkdir -p "$pub" && cp -R "$origen/." "$pub/"
+          {
+            echo "# Capturas de la PR #$NUMERO"
+            echo
+            echo "Rama de publicación generada por el flujo Capturas a partir del commit \`${SHA::7}\` (comprobaciones: $ESTADO). Se reescribe entera en cada ejecución; no editar a mano."
+            echo
+            echo "Cada carpeta es una variación (\`base\` es el tema sin variación) con \`portada\`, \`sala\` y \`ficha\` a 1440 y 500 px. En \`blueprints/\` está el blueprint de Playground de cada variación, fijado a ese commit: \`https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/$REPO/$rama/blueprints/<variación>.json\`."
+          } > "$pub/README.md"
+          cd "$pub"
+          git init -q -b capturas
+          git add -A
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -q -m "capturas de ${SHA::7} (PR #$NUMERO)"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO}.git" "HEAD:refs/heads/$rama"
+          {
+            echo "### Capturas publicadas en \`$rama\`"
+            echo
+            for png in $(cd "$pub" && find . -name '*.png' | sort); do
+              echo "- https://raw.githubusercontent.com/$REPO/$rama/${png#./}"
+            done
+            echo
+            for bp in $(cd "$pub" && find blueprints -name '*.json' | sort); do
+              echo "- Playground $(basename "$bp" .json): https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/$REPO/$rama/$bp"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Resultado de las comprobaciones
+        if: steps.capturas.outcome != 'success'
+        run: |
+          echo "::error::Las capturas tienen comprobaciones en rojo (ver el paso «Capturas y comprobaciones»)"
+          exit 1

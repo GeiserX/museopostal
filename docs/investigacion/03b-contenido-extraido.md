@@ -517,7 +517,7 @@ El cumplimiento de la normativa sobre protección de datos personales es una pri
 
 Responsable: FELIPE MARTINEZ SORIANO
 
-Domicilio: Calle Telefonista Encarna Ayala, 30570, Murcia, España
+Domicilio: Calle [omitido], 30570, Murcia, España
 
 Sitio Web: MUSEOPOSTAL.ORG
 
@@ -582,7 +582,7 @@ Si no está seguro con los gastos de envío a pagar solícitenos el total y lo m
 
 En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), Felipe Martínez Soriano informa que es titular del sitio web www.museopostal.org [fix?: en el original «WWW.» enlaza a estudifilatelic.com, resto de una plantilla copiada]. De acuerdo con la exigencia del artículo 10 de la citada Ley, Felipe Martínez Soriano informa de los siguientes datos:
 
-El titular de este sitio web es Felipe Martínez Soriano, con DNI [omitido en este documento; ver original] y domicilio en Murcia (C. P. 30570) [domicilio completo: ver original]. La dirección de correo electrónico de contacto con la empresa es: [[email-omitido]](<mailto:[email-omitido]>).
+El titular de este sitio web es Felipe Martínez Soriano, con DNI [omitido en este documento; ver original] y domicilio en Murcia (C. P. 30570) [domicilio completo: ver original]. La dirección de correo electrónico de contacto con la empresa es: [email-omitido].
 
 #### Usuario y régimen de responsabilidades
 
@@ -617,7 +617,7 @@ Mientras no nos comunique lo contrario, entenderemos que sus datos no han sido m
 
 Felipe Martínez Soriano informa que procederá a tratar los datos de manera lícita, leal, transparente, adecuada, pertinente, limitada, exacta y actualizada. Es por ello que Felipe Martínez Soriano se compromete a adoptar todas las medidas razonables para que estos se supriman o rectifiquen sin dilación cuando sean inexactos.
 
-De acuerdo con los derechos que le confiere la normativa vigente en protección de datos podrá ejercer los derechos de acceso, rectificación, limitación de tratamiento, supresión, portabilidad y oposición al tratamiento de sus datos de carácter personal así como del consentimiento prestado para el tratamiento de los mismos, dirigiendo su petición a la dirección postal indicada más arriba o al correo electrónico [[email-omitido]](<mailto:[email-omitido]>). Podrá dirigirse a la Autoridad de Control competente para presentar la reclamación que considere oportuna.
+De acuerdo con los derechos que le confiere la normativa vigente en protección de datos podrá ejercer los derechos de acceso, rectificación, limitación de tratamiento, supresión, portabilidad y oposición al tratamiento de sus datos de carácter personal así como del consentimiento prestado para el tratamiento de los mismos, dirigiendo su petición a la dirección postal indicada más arriba o al correo electrónico [email-omitido]. Podrá dirigirse a la Autoridad de Control competente para presentar la reclamación que considere oportuna.
 
 #### Propiedad intelectual e industrial
 

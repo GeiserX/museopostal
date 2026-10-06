@@ -1,0 +1,69 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"mp-coleccion","layout":{"type":"constrained"}} -->
+<main class="wp-block-group mp-coleccion">
+<!-- wp:breadcrumbs /-->
+
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">La colección</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Todas las piezas del museo. Busca por número Edifil, lugar o tema, o entra por época, lugar o tipo de pieza.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:search {"label":"Buscar en la colección","showLabel":true,"placeholder":"Por ejemplo: Edifil 81, Águilas, censura","buttonText":"Buscar","query":{"post_type":"pieza"}} /-->
+
+<!-- wp:group {"align":"wide","className":"mp-facetas-coleccion","layout":{"type":"grid","minimumColumnWidth":"14rem"}} -->
+<div class="wp-block-group alignwide mp-facetas-coleccion">
+<!-- wp:group {"anchor":"por-epoca","layout":{"type":"default"}} -->
+<div id="por-epoca" class="wp-block-group">
+<!-- wp:heading {"level":2,"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">Por época</h2>
+<!-- /wp:heading -->
+
+<!-- wp:categories {"taxonomy":"epoca","showPostCounts":true} /-->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"por-lugar","layout":{"type":"default"}} -->
+<div id="por-lugar" class="wp-block-group">
+<!-- wp:heading {"level":2,"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">Por lugar</h2>
+<!-- /wp:heading -->
+
+<!-- wp:categories {"taxonomy":"lugar","showPostCounts":true,"showHierarchy":true} /-->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"por-tipo","layout":{"type":"default"}} -->
+<div id="por-tipo" class="wp-block-group">
+<!-- wp:heading {"level":2,"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">Por tipo de pieza</h2>
+<!-- /wp:heading -->
+
+<!-- wp:categories {"taxonomy":"tipo","showPostCounts":true} /-->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"anchor":"por-tema","layout":{"type":"default"}} -->
+<div id="por-tema" class="wp-block-group">
+<!-- wp:heading {"level":2,"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">Por tema</h2>
+<!-- /wp:heading -->
+
+<!-- wp:categories {"taxonomy":"tema","showPostCounts":true} /-->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Todas las piezas</h2>
+<!-- /wp:heading -->
+
+<!-- wp:pattern {"slug":"museopostal/rejilla-piezas"} /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

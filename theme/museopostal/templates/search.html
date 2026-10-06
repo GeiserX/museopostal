@@ -1,0 +1,45 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+<!-- wp:breadcrumbs /-->
+
+<!-- wp:query-title {"type":"search"} /-->
+
+<!-- wp:search {"label":"Buscar en el museo","showLabel":false,"placeholder":"Buscar: Edifil, lugar, tema…","buttonText":"Buscar"} /-->
+
+<!-- wp:query {"queryId":3,"query":{"inherit":true},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template -->
+<!-- wp:group {"tagName":"article","className":"mp-resultado","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+<article class="wp-block-group mp-resultado">
+<!-- wp:post-featured-image {"isLink":true,"width":"6rem","aspectRatio":"1","scale":"contain","sizeSlug":"thumbnail","className":"is-style-montura"} /-->
+
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group">
+<!-- wp:post-title {"level":2,"isLink":true,"fontSize":"medium"} /-->
+
+<!-- wp:post-excerpt {"excerptLength":30} /-->
+</div>
+<!-- /wp:group -->
+</article>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous /-->
+<!-- wp:query-pagination-numbers /-->
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No hemos encontrado nada con esa búsqueda. Prueba con un número Edifil, un lugar o un tema, o entra en una de las salas.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
